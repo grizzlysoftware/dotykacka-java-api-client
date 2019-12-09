@@ -1,0 +1,166 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'groovy'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('src/main/java')
+        }
+    }
+    test {
+        groovy {
+            srcDir file('src/test/groovy')
+        }
+    }
+    testIntegration {
+        groovy {
+            compileClasspath += sourceSets.main.output
+            runtimeClasspath += sourceSets.main.output
+            srcDir file('src/test-integration/groovy')
+        }
+    }
+}
+
+configurations {
+    testIntegrationCompile.extendsFrom testCompile
+    testIntegrationRuntime.extendsFrom testRuntime
+}
+
+task testIntegration(type: Test) {
+    testClassesDirs = project.sourceSets.testIntegration.output.classesDirs.filter {
+        include '**/*.class'
+    }
+    classpath = project.sourceSets.testIntegration.runtimeClasspath
+}
+
+task artifactVersion {
+    doFirst {
+        def releaseType = System.getenv("RELEASE_TYPE")
+        if (releaseType == 'SNAPSHOT') {
+            project.version += '-SNAPSHOT'
+        }
+    }
+}
+task publishArtifact {
+    dependsOn 'clean'
+    dependsOn 'artifactVersion'
+    dependsOn 'build'
+    dependsOn 'publish'
+    tasks.findByName('artifactVersion').mustRunAfter 'clean'
+    tasks.findByName('build').mustRunAfter 'artifactVersion'
+    tasks.findByName('publish').mustRunAfter 'build'
+}
+task sourceJar(type: Jar) {
+    classifier "sources"
+    from sourceSets.main.allJava
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier "javadoc"
+    from javadoc.destinationDir
+}
+publishing {
+    publications {
+        "${project.name}"(MavenPublication) {
+            from project.components.java
+            artifact sourceJar
+            artifact javadocJar
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                groupId = project.group
+                artifactId = project.artifactId
+                name = project.name
+                description = project.description
+                url = project.url
+                organization {
+                    name = organisationName
+                    url = organisationUrl
+                }
+                issueManagement {
+                    system = issueMgmtSystem
+                    url = issueMgmtSystemUrl
+                }
+                licenses {
+                    license {
+                        name = license
+                        url = licenseUrl
+                        distribution = licenseDistribution
+                    }
+                }
+                scm {
+                    url = scmUrl
+                    connection = scmConnection
+                    developerConnection = scmDevConnection
+                }
+                developers {
+                    developer {
+                        name = developer
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        def releaseType = System.getenv("RELEASE_TYPE")
+        if (releaseType == "SNAPSHOT") {
+            maven {
+                name 'OSS Sonatype Snapshot'
+                url 'https://oss.sonatype.org/content/repositories/snapshots'
+                credentials {
+                    username System.getenv('SONATYPE_USERNAME')
+                    password System.getenv('SONATYPE_PASSWORD')
+                }
+            }
+        }
+        if (releaseType == "RELEASE") {
+            maven {
+                name 'OSS Sonatype staging'
+                url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+                credentials {
+                    username System.getenv('SONATYPE_USERNAME')
+                    password System.getenv('SONATYPE_PASSWORD')
+                }
+            }
+        }
+        def localRepo = System.getenv('MVN_LOCAL_REPO')
+        if (localRepo != null) {
+            maven {
+                url 'file://' + localRepo
+            }
+        }
+    }
+}
+/*signing {
+    sign publishing.publications."${project.name}"
+}*/
+
+dependencies {
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: okHttpVersion
+    compile group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion
+    compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: retrofitVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: commonsLang3Version
+    compile group: 'commons-codec', name: 'commons-codec', version: commonsCodecVersion
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
+
+
+    testCompile group: 'org.spockframework', name: 'spock-core', version: spockVersion
+    testCompile group: 'net.bytebuddy', name: 'byte-buddy', version: byteBuddyVersion
+    testCompile group: 'org.objenesis', name: 'objenesis', version: objenesisVersion
+}
