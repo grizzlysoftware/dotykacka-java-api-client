@@ -21,5 +21,11 @@ ACCESS_TOKEN_USERNAME=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 ACCESS_TOKEN_PASSWORD=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 gradlew clean testIntegration i
 ```
-XXXXXXXXXXX marks should be removed with proper env variables
-
+XXXXXXXXXXX marks should be removed with proper env variables,
+for test purposes you could use following
+```
+API_TOKEN_USERNAME=demo@dotykacka.cz
+API_TOKEN_PASSWORD=touchpo_84406
+ACCESS_TOKEN_USERNAME=touchpo
+ACCESS_TOKEN_PASSWORD=touchPo!2016api
+```

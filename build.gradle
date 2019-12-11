@@ -157,7 +157,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: commonsLang3Version
     compile group: 'commons-codec', name: 'commons-codec', version: commonsCodecVersion
     compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
-    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
 
 
     testCompile group: 'org.spockframework', name: 'spock-core', version: spockVersion

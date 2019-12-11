@@ -18,6 +18,8 @@
 
 package pl.grizzlysoftware.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -32,6 +34,8 @@ import static java.util.Optional.ofNullable;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public class RetrofitCallExecutor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RetrofitCallExecutor.class);
+
     protected Class target;
 
     public RetrofitCallExecutor(Class target) {
@@ -56,6 +60,7 @@ public class RetrofitCallExecutor {
             }
             return response;
         } catch (IOException e) {
+            LOGGER.error("Exception occured while sending request: {}", e.getMessage());
             throw new ResponseStatusException(HttpURLConnection.HTTP_UNAVAILABLE);
         }
     }

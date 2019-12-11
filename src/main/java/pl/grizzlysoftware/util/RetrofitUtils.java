@@ -37,6 +37,7 @@ public final class RetrofitUtils {
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .client(client)
+                .addConverterFactory(new OkHttpNonEmptyBodyConverterFactory())
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .build();
     }

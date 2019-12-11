@@ -42,7 +42,7 @@ public class OkHttpLoggingInterceptor implements Interceptor {
         var response = chain.proceed(request);
 
         var t2 = System.nanoTime();
-        logger.debug("Received response for {} \n*TIME ELAPSED:{}\n*STATUS: {}\n *HEADERS:\n {}",
+        logger.debug("Received response for {} \n*TIME ELAPSED:{}\n*STATUS: {}\n*HEADERS:\n{}",
                 response.request().url(), (t2 - t1) / 1e6d, response.code(), response.headers());
 
         return response;
