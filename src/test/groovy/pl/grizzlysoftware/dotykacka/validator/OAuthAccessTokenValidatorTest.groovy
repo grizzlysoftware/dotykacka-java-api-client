@@ -18,7 +18,7 @@
 
 package pl.grizzlysoftware.dotykacka.validator
 
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthAccessToken
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken
 import spock.lang.Specification
 import spock.lang.Unroll
 

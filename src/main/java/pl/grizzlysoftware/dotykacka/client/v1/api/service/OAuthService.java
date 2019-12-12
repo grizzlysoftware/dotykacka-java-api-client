@@ -16,10 +16,10 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.api.client.v1.service;
+package pl.grizzlysoftware.dotykacka.client.v1.api.service;
 
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthAccessToken;
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthApiToken;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken;
 import retrofit2.Call;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;

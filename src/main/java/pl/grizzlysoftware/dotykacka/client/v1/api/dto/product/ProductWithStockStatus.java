@@ -1,4 +1,4 @@
-package pl.grizzlysoftware.dotykacka.api.v1.dto.product;
+package pl.grizzlysoftware.dotykacka.client.v1.api.dto.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

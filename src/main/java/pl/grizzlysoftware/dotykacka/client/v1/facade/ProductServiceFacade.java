@@ -16,27 +16,20 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.facade.v1;
+package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
-import pl.grizzlysoftware.dotykacka.api.client.v1.service.ProductService;
-import pl.grizzlysoftware.dotykacka.api.v1.dto.product.ProductWithStockStatus;
-import pl.grizzlysoftware.util.RetrofitApiServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.ProductService;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.product.ProductWithStockStatus;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static java.util.Objects.requireNonNull;
-
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public class ProductServiceFacade extends RetrofitApiServiceFacade {
-    protected ProductService service;
-    protected String cloudId;
-
+public class ProductServiceFacade extends DotykackaApiServiceFacade<ProductService> {
     public ProductServiceFacade(String cloudId, ProductService service) {
-        this.cloudId = requireNonNull(cloudId);
-        this.service = requireNonNull(service);
+        super(cloudId, service);
     }
 
     public Collection<ProductWithStockStatus> getProductsWithStockStatus(long warehouseId) {

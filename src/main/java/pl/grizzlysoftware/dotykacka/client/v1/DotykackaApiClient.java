@@ -16,13 +16,13 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka;
+package pl.grizzlysoftware.dotykacka.client.v1;
 
-import pl.grizzlysoftware.dotykacka.api.client.v1.service.OAuthService;
-import pl.grizzlysoftware.dotykacka.api.client.v1.service.ProductService;
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthApiToken;
-import pl.grizzlysoftware.dotykacka.facade.v1.OAuthServiceFacade;
-import pl.grizzlysoftware.dotykacka.facade.v1.ProductServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.OAuthService;
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.ProductService;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken;
+import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.v1.facade.ProductServiceFacade;
 import pl.grizzlysoftware.dotykacka.model.Configuration;
 import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider;
 import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider;
@@ -30,8 +30,7 @@ import pl.grizzlysoftware.dotykacka.util.OAuthRequestInterceptor;
 import pl.grizzlysoftware.util.OkHttpLoggingInterceptor;
 
 import static java.util.Objects.requireNonNull;
-import static pl.grizzlysoftware.dotykacka.util.DotykackaServiceContextPath.OAUTH;
-import static pl.grizzlysoftware.dotykacka.util.DotykackaServiceContextPath.PRODUCT;
+import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.*;
 import static pl.grizzlysoftware.util.OkHttpClientUtils.builder;
 import static pl.grizzlysoftware.util.RetrofitUtils.service;
 
@@ -41,6 +40,7 @@ import static pl.grizzlysoftware.util.RetrofitUtils.service;
 public class DotykackaApiClient {
     public final OAuthServiceFacade oauthService;
     public final ProductServiceFacade productService;
+
     protected Configuration configuration;
     protected AccessTokenProvider accessTokenProvider;
     protected ApiTokenProvider apiTokenProvider;

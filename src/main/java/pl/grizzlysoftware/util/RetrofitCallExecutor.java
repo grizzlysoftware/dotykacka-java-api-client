@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 import static java.util.Optional.ofNullable;

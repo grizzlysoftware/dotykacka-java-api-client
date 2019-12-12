@@ -16,31 +16,12 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.facade.v1
-
-
-import pl.grizzlysoftware.dotykacka.api.client.v1.service.ProductService
-import pl.grizzlysoftware.util.DotykackaSecureServiceSpecification
-
-import static pl.grizzlysoftware.dotykacka.util.DotykackaServiceContextPath.PRODUCT
-import static pl.grizzlysoftware.util.DotykackaApiInfo.API_URL
-import static pl.grizzlysoftware.util.DotykackaApiInfo.CLOUD_ID
-import static pl.grizzlysoftware.util.DotykackaApiInfo.WAREHOUSE_ID
-import static pl.grizzlysoftware.util.RetrofitUtils.service
+package pl.grizzlysoftware.dotykacka.client.v1.api.util;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-class ProductServiceFacadeTest extends DotykackaSecureServiceSpecification {
-
-    def "returns products"() {
-        given:
-            def facade = new ProductServiceFacade(CLOUD_ID, service(httpClient(), API_URL + PRODUCT, ProductService.class))
-        when:
-            def out = facade.getProductsWithStockStatus(WAREHOUSE_ID, 0, 10)
-        then:
-            out != null
-            out.size() == 10
-
-    }
+public interface DotykackaServiceContextPath {
+    String OAUTH = "/oauth";
+    String PRODUCT = "/api/product";
 }

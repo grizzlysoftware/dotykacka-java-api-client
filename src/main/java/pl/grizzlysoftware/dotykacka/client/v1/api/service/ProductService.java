@@ -16,9 +16,9 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.api.client.v1.service;
+package pl.grizzlysoftware.dotykacka.client.v1.api.service;
 
-import pl.grizzlysoftware.dotykacka.api.v1.dto.product.ProductWithStockStatus;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.product.ProductWithStockStatus;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

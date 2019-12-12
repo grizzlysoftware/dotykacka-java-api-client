@@ -1,16 +1,17 @@
 package pl.grizzlysoftware.util
 
 import okhttp3.OkHttpClient
-import pl.grizzlysoftware.dotykacka.api.client.v1.service.OAuthService
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthApiToken
-import pl.grizzlysoftware.dotykacka.facade.v1.OAuthServiceFacade
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.OAuthService
+import pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath
+import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade
 import pl.grizzlysoftware.dotykacka.model.Credentials
 import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider
 import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider
 import pl.grizzlysoftware.dotykacka.util.OAuthRequestInterceptor
 import spock.lang.Specification
 
-import static pl.grizzlysoftware.dotykacka.util.DotykackaServiceContextPath.OAUTH
+import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.OAUTH
 import static pl.grizzlysoftware.util.DotykackaApiInfo.*
 import static pl.grizzlysoftware.util.OkHttpClientUtils.builder
 import static pl.grizzlysoftware.util.RetrofitUtils.service

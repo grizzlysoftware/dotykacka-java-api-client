@@ -22,7 +22,7 @@ import okhttp3.Interceptor
 import okhttp3.Protocol
 import okhttp3.Request
 import okhttp3.Response
-import pl.grizzlysoftware.dotykacka.api.v1.dto.oauth.OAuthAccessToken
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken
 import spock.lang.Specification
 
 import static java.lang.System.currentTimeMillis

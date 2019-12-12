@@ -16,42 +16,50 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.api.v1.dto.oauth;
+package pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OAuthApiToken {
+public class OAuthAccessToken {
 
-    @JsonProperty("email")
-    public String email;
-
-    @JsonProperty("name")
-    public String name;
-
-    @JsonProperty("phone_number")
-    public String phoneNumber;
-
-    @JsonProperty("apiToken")
+    @JsonProperty("access_token")
     public String token;
 
-    public OAuthApiToken(String email, String name, String phoneNumber, String token) {
-        this.email = email;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.token = requireNonNull(token);
+    @JsonProperty("token_type")
+    public String tokenType;
+
+    @JsonProperty("expires_in")
+    public long expiresInSeconds;
+
+    @JsonProperty("scope")
+    public String scope;
+
+    /**
+     * information about time token was received - used to determine whether token is expired. Might be used as issuedAt but it's not precise
+     *
+     * IT IS NOT DOTYKACKA API SERVER TIME
+     * */
+    public long receivedAt;
+
+    public OAuthAccessToken(String token, String tokenType, long expiresIn, String scope, long receivedAt) {
+        this.token = token;
+        this.tokenType = tokenType;
+        this.expiresInSeconds = expiresIn;
+        this.scope = scope;
+        this.receivedAt = receivedAt;
     }
 
-    public OAuthApiToken(String token) {
-        this.token = requireNonNull(token);
+    public OAuthAccessToken(String token, long expiresIn, long receivedAt) {
+        this.token = token;
+        this.expiresInSeconds = expiresIn;
+        this.receivedAt = receivedAt;
     }
 
-    public OAuthApiToken() {
+    public OAuthAccessToken() {
     }
 }
