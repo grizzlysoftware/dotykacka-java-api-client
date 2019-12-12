@@ -18,9 +18,11 @@
 
 package pl.grizzlysoftware.dotykacka.client.v1;
 
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.CustomerService;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.OAuthService;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.ProductService;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken;
+import pl.grizzlysoftware.dotykacka.client.v1.facade.CustomerServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v1.facade.ProductServiceFacade;
 import pl.grizzlysoftware.dotykacka.model.Configuration;
@@ -40,6 +42,7 @@ import static pl.grizzlysoftware.util.RetrofitUtils.service;
 public class DotykackaApiClient {
     public final OAuthServiceFacade oauthService;
     public final ProductServiceFacade productService;
+    public final CustomerServiceFacade customerService;
 
     protected Configuration configuration;
     protected AccessTokenProvider accessTokenProvider;
@@ -65,5 +68,6 @@ public class DotykackaApiClient {
                 .build();
 
         productService = new ProductServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + PRODUCT, ProductService.class));
+        customerService = new CustomerServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + CUSTOMER, CustomerService.class));
     }
 }

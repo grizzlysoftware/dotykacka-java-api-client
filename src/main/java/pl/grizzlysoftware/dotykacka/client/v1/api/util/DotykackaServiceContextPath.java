@@ -24,4 +24,5 @@ package pl.grizzlysoftware.dotykacka.client.v1.api.util;
 public interface DotykackaServiceContextPath {
     String OAUTH = "/oauth";
     String PRODUCT = "/api/product";
+    String CUSTOMER = "/api/customer";
 }
