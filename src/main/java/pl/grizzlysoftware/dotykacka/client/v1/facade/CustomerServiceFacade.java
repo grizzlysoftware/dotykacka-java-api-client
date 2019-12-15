@@ -19,24 +19,29 @@ public class CustomerServiceFacade extends DotykackaApiServiceFacade<CustomerSer
         return out;
     }
 
-    public Collection<Customer> getCustomers() {
-        var out = execute(service.getCustomers(cloudId));
+    public Collection<Customer> getAllCustomers() {
+        var out = execute(service.getCustomers(cloudId, null, null));
         return out;
     }
 
-    public void updateCustomer(Long id, Customer customer) {
-        execute(service.updateCustomer(cloudId, id, customer));
+    public Collection<Customer> getCustomers(int limit, int offset) {
+        var out = execute(service.getCustomers(cloudId, limit, offset));
+        return out;
     }
 
-    public void createCustomer(Customer customer) {
-        execute(service.createCustomer(cloudId, customer));
+    public Customer updateCustomer(Long id, Customer customer) {
+        return execute(service.updateCustomer(cloudId, id, customer));
     }
 
-    public void deleteCustomer(Long id, boolean anonymize) {
-        execute(service.deleteCustomer(cloudId, id, anonymize));
+    public Customer createCustomer(Customer customer) {
+        return execute(service.createCustomer(cloudId, customer));
     }
 
-    public void deleteCustomer(Long id) {
-        execute(service.deleteCustomer(cloudId, id, null));
+    public Customer deleteCustomer(Long id, boolean anonymize) {
+        return execute(service.deleteCustomer(cloudId, id, anonymize));
+    }
+
+    public Customer deleteCustomer(Long id) {
+        return execute(service.deleteCustomer(cloudId, id, null));
     }
 }

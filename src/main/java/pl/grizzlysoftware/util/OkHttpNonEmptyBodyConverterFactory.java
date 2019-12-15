@@ -11,16 +11,9 @@ import java.lang.reflect.Type;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public class OkHttpNonEmptyBodyConverterFactory extends Converter.Factory {
-    protected OkHttpNonEmptyBodyConverter converter;
-
-    public OkHttpNonEmptyBodyConverterFactory() {
-        converter = new OkHttpNonEmptyBodyConverter();
-    }
-
     @Override
     public Converter<ResponseBody, Object> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
         var delegate = retrofit.nextResponseBodyConverter(this, type, annotations);
-        converter.setDelegate(delegate);
-        return converter;
+        return new OkHttpNonEmptyBodyConverter(delegate);
     }
 }

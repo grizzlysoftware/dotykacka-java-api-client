@@ -18,11 +18,17 @@
 
 package pl.grizzlysoftware.util;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.*;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
+
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
@@ -38,7 +44,27 @@ public final class RetrofitUtils {
                 .baseUrl(url)
                 .client(client)
                 .addConverterFactory(new OkHttpNonEmptyBodyConverterFactory())
-                .addConverterFactory(JacksonConverterFactory.create(mapper))
+                .addConverterFactory(new Converter.Factory() {
+                    Converter.Factory jks = JacksonConverterFactory.create(mapper);
+                    @Override
+                    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+                        return jks.requestBodyConverter(type, parameterAnnotations, methodAnnotations, retrofit);
+                    }
+
+                    @Override
+                    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+                        return new Converter<ResponseBody, Object>() {
+                            @Override
+                            public Object convert(ResponseBody value) throws IOException {
+                                JavaType javaType = mapper.getTypeFactory().constructType(type);
+                                ObjectReader reader = mapper.readerFor(javaType);
+                                var str = value.string();
+                                System.out.println(javaType.getRawClass().getSimpleName()+" "+str);
+                                return reader.readValue(str);
+                            }
+                        };
+                    }
+                })
                 .build();
     }
 
