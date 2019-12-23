@@ -25,4 +25,12 @@ public interface DotykackaServiceContextPath {
     String OAUTH = "/oauth";
     String PRODUCT = "/api/product";
     String CUSTOMER = "/api/customer";
+
+    interface SALES {
+        String SALES = "/api/sales";
+        String RECEIPT = "/api/receipt";
+        String ORDER = "/api/order";
+        String ORDER_OPEN = "/api/order-open";
+        String MONEYLOG = "/api/moneylog";
+    }
 }

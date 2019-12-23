@@ -26,7 +26,6 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
@@ -53,16 +52,7 @@ public final class RetrofitUtils {
 
                     @Override
                     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-                        return new Converter<ResponseBody, Object>() {
-                            @Override
-                            public Object convert(ResponseBody value) throws IOException {
-                                JavaType javaType = mapper.getTypeFactory().constructType(type);
-                                ObjectReader reader = mapper.readerFor(javaType);
-                                var str = value.string();
-                                System.out.println(javaType.getRawClass().getSimpleName()+" "+str);
-                                return reader.readValue(str);
-                            }
-                        };
+                        return new LoggingJacksonResponseBodyConverter(mapper, type);
                     }
                 })
                 .build();

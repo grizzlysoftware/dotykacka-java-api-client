@@ -28,7 +28,7 @@ import java.util.Collection;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public class ProductServiceFacade extends DotykackaApiServiceFacade<ProductService> {
-    public ProductServiceFacade(String cloudId, ProductService service) {
+    public ProductServiceFacade(Integer cloudId, ProductService service) {
         super(cloudId, service);
     }
 

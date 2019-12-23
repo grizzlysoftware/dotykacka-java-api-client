@@ -1,6 +1,5 @@
 package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
-import pl.grizzlysoftware.util.RetrofitApiServiceFacade;
 import pl.grizzlysoftware.util.RetrofitCallExecutor;
 
 import static java.util.Objects.requireNonNull;
@@ -8,18 +7,16 @@ import static java.util.Objects.requireNonNull;
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public class DotykackaApiServiceFacade<T> extends RetrofitApiServiceFacade {
-    protected String cloudId;
+public class DotykackaApiServiceFacade<T> extends BasicDotykackaApiServiceFacade {
     protected T service;
 
-    public DotykackaApiServiceFacade(RetrofitCallExecutor executor, String cloudId, T service) {
-        super(executor);
-        this.cloudId = requireNonNull(cloudId);
+    public DotykackaApiServiceFacade(RetrofitCallExecutor executor, Integer cloudId, T service) {
+        super(executor, cloudId);
         this.service = requireNonNull(service);
     }
 
-    public DotykackaApiServiceFacade(String cloudId, T service) {
-        this.cloudId = requireNonNull(cloudId);
+    public DotykackaApiServiceFacade(Integer cloudId, T service) {
+        super(cloudId);
         this.service = requireNonNull(service);
     }
 }

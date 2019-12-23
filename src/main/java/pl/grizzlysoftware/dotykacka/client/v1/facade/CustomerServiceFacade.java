@@ -1,7 +1,8 @@
 package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
-import pl.grizzlysoftware.dotykacka.client.v1.api.service.CustomerService;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.customer.Customer;
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.CustomerService;
+import pl.grizzlysoftware.dotykacka.util.BatchLoader;
 
 import java.util.Collection;
 
@@ -10,8 +11,10 @@ import java.util.Collection;
  */
 public class CustomerServiceFacade extends DotykackaApiServiceFacade<CustomerService> {
 
-    public CustomerServiceFacade(String cloudId, CustomerService service) {
+    protected BatchLoader batchLoader;
+    public CustomerServiceFacade(Integer cloudId, CustomerService service) {
         super(cloudId, service);
+        this.batchLoader = new BatchLoader(100);
     }
 
     public Customer getCustomer(Long id) {
@@ -19,8 +22,18 @@ public class CustomerServiceFacade extends DotykackaApiServiceFacade<CustomerSer
         return out;
     }
 
+    public Collection<Customer> getAllCustomers(int limit, int offset, String sortBy) {
+        var out = execute(service.getCustomers(cloudId, limit, offset, sortBy));
+        return out;
+    }
+
+    public Collection<Customer> getAllCustomers(String sortBy) {
+        var out = batchLoader.load(page -> getAllCustomers(page.limit, page.offset, sortBy));
+        return out;
+    }
+
     public Collection<Customer> getAllCustomers() {
-        var out = execute(service.getCustomers(cloudId, null, null));
+        var out = getAllCustomers(null);
         return out;
     }
 

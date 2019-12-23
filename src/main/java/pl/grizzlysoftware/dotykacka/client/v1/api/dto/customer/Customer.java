@@ -31,6 +31,9 @@ public class Customer {
     @JsonProperty("lastname")
     public String lastName;
 
+    @JsonProperty("companyname")
+    public String companyName;
+
     @JsonProperty("note")
     public String note;
 

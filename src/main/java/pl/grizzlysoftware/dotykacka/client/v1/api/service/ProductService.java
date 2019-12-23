@@ -31,5 +31,5 @@ import java.util.Collection;
  */
 public interface ProductService {
     @GET("{cloudId}/{warehouseId}/list?offset=%s&limit=%s")
-    Call<Collection<ProductWithStockStatus>> getProductsWithStockStatus(@Path("cloudId") String cloudId, @Path("warehouseId") long warehouseId, @Query("offset") int offset, @Query("limit") int limit);
+    Call<Collection<ProductWithStockStatus>> getProductsWithStockStatus(@Path("cloudId") Integer cloudId, @Path("warehouseId") long warehouseId, @Query("offset") int offset, @Query("limit") int limit);
 }
