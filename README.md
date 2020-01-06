@@ -9,27 +9,27 @@ Compatible with Dotykacka api version 1.62
 Scratched elements means - DONE
 
 Dotykacka API service coverage:
-* Branches Service
-  * Get Branch
-  * Get All Branches for Cloud
-* Category Service
-  * Create Category
-  * Update Category Field
-  * Delete Category
-  * Get All Categories for Cloud
-  * Get Category
+* ~~Branches Service~~
+  * ~~Get Branch~~
+  * ~~Get All Branches for Cloud~~
+* ~~Category Service~~
+  * ~~Create Category~~
+  * ~~Update Category Field~~
+  * ~~Delete Category~~
+  * ~~Get All Categories for Cloud~~
+  * ~~Get Category~~
 * ~~Customer Service~~
   * ~~Get Customer~~
   * ~~Delete Customer~~
   * ~~Update Customer Field~~
   * ~~Create Customer~~
   * ~~Get All Customers for Cloud~~
-* Employee Service
-  * Get Employee
-  * Get All Employees for Cloud
-  * Delete Employee
-  * Update Employee Field
-  * Create Employee
+* ~~Employee Service~~
+  * ~~Get Employee~~
+  * ~~Get All Employees for Cloud~~
+  * ~~Delete Employee~~
+  * ~~Update Employee Field~~
+  * ~~Create Employee~~
 * OAuth2 Login Service
   * ~~API-token login~~
   * ~~Get API-token~~
@@ -78,12 +78,12 @@ Get All Products with stockstatus
   * Get Warehouse list
   * Product sale
   * Upload delivery note
-* Suppliers Service
-  * Get Supplier
-  * Get All Suppliers for Cloud
-  * Delete Supplier
-  * Update Supplier Field
-  * Create Supplier
+* ~~Suppliers Service~~
+  * ~~Get Supplier~~
+  * ~~Get All Suppliers for Cloud~~
+  * ~~Delete Supplier~~
+  * ~~Update Supplier Field~~
+  * ~~Create Supplier~~
 * Tableseats Service
   * Get Tableseat by ID for Branch
   * Get All Tableseats for Branch
