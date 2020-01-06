@@ -119,7 +119,7 @@ public class ProductWithStockStatus {
     public Integer permisions;
 
     @JsonProperty("pgKey")
-    public Integer pgKey;
+    public Long pgKey;
 
     @JsonProperty("plu")
     public String plu;
