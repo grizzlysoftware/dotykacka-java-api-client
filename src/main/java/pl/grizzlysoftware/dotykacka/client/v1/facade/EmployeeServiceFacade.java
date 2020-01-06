@@ -38,8 +38,8 @@ public class EmployeeServiceFacade extends DotykackaApiServiceFacade<EmployeeSer
         return out;
     }
 
-    public Collection<Employee> getEmployees(int limit, int offset, String sortyBy) {
-        var out = execute(service.getEmployees(cloudId, limit, offset, sortyBy));
+    public Collection<Employee> getEmployees(int limit, int offset, String sortBy) {
+        var out = execute(service.getEmployees(cloudId, limit, offset, sortBy));
         return out;
     }
 
