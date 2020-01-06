@@ -1,6 +1,7 @@
 package pl.grizzlysoftware.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import okhttp3.ResponseBody;
@@ -27,6 +28,9 @@ public class OkHttpNonEmptyBodyConverter<T extends Object> implements Converter<
         try {
             var out = delegate.convert(body);
             return out;
+        } catch(InvalidFormatException e) {
+            LOGGER.warn("cannot deserialize", e);
+            return null;
         } catch (MismatchedInputException e) {
             //this is when api returns empty response, intead of empty list
             if (delegate instanceof LoggingJacksonResponseBodyConverter) {
