@@ -26,6 +26,7 @@ public interface DotykackaServiceContextPath {
     String PRODUCT = "/api/product";
     String CUSTOMER = "/api/customer";
     String BRANCH = "/api/branches";
+    String CATEGORY = "/api/category";
 
     interface SALES {
         String SALES = "/api/sales";
