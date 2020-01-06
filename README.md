@@ -6,6 +6,8 @@ Compatible with Dotykacka api version 1.62
 * Gradle 6.0.2
 
 ## Dotykacka API coverage progress
+Scratched elements means - DONE
+
 Dotykacka API service coverage:
 * Branches Service
   * Get Branch
@@ -57,7 +59,7 @@ Get All Products with stockstatus
   * Create Reservation
   * Get All Reservations for Cloud
   * Get Reservation
-* Sales Service
+* ~~Sales Service~~
   * ~~Base sales report~~
   * ~~Get Receipt by ID~~
   * ~~Get Order by ID for Branch~~
@@ -101,6 +103,8 @@ Get All Products with stockstatus
 gradlew clean test 
 ```
 ## Running integration tests
+These tests are rather symbolic. Their purpose is to verify whether connectivity works fine,
+ endpoints are satisfied with given parameters and unmarshalling response objects works fine.
 ```
 DOTYKACKA_API_URL="https://api.dotykacka.cz" \
 CLOUD_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
