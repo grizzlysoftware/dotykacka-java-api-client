@@ -16,22 +16,35 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.client.v1.api.util;
+package pl.grizzlysoftware.dotykacka.client.v1.api.service;
+
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.branch.Branch;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
+import java.util.Collection;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public interface DotykackaServiceContextPath {
-    String OAUTH = "/oauth";
-    String PRODUCT = "/api/product";
-    String CUSTOMER = "/api/customer";
-    String BRANCH = "/api/branches";
+public interface BranchService {
+    /**
+     * @param cloudId - cloud id
+     * @param branchId - branch id
+     * @return
+     */
+    @GET("{cloudId}/{branchId}")
+    Call<Branch> getBranch(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId);
 
-    interface SALES {
-        String SALES = "/api/sales";
-        String RECEIPT = "/api/receipt";
-        String ORDER = "/api/order";
-        String ORDER_OPEN = "/api/order-open";
-        String MONEYLOG = "/api/moneylog";
-    }
+    /**
+     * @param cloudId   - cloud id
+     * @param offset    - pagination parameter, default = 0
+     * @param limit     - pagination parameter, default = 100, max = 100
+     * @param sort      - Description: Sort parameters in format: column_name1,column_name2 //means asc -column_name1,-column_name2 //means desc
+     * @return
+     */
+    @GET("{cloudId}")
+    Call<Collection<Branch>> getBranches(@Path("cloudId") Integer cloudId, @Query("limit") int limit, @Query("offset") int offset,  @Query("sort") String sort);
 }

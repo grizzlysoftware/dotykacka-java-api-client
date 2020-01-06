@@ -1,10 +1,14 @@
 plugins {
+    id 'maven-publish'
     id 'java'
     id 'java-library'
     id 'groovy'
     id 'signing'
-    id 'maven-publish'
 }
+
+ext."signing.keyId" = System.getenv("SIGNING_KEY_ID")
+ext."signing.password" = System.getenv("SIGNING_KEY_PASSWORD")
+ext."signing.secretKeyRingFile" = System.getenv("SIGNING_KEY_PATH")
 
 repositories {
     mavenCentral()
@@ -116,7 +120,28 @@ publishing {
         }
     }
     repositories {
+        def releaseType = System.getenv("RELEASE_TYPE")
 
+        if (releaseType == "SNAPSHOT") {
+            maven {
+                name 'OSS_Sonatype_Snapshot'
+                url 'https://oss.sonatype.org/content/repositories/snapshots'
+                credentials {
+                    username System.getenv('SONATYPE_USERNAME')
+                    password System.getenv('SONATYPE_PASSWORD')
+                }
+            }
+        }
+        if (releaseType == "RELEASE") {
+            maven {
+                name 'OSS_Sonatype_Staging'
+                url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+                credentials {
+                    username System.getenv('SONATYPE_USERNAME')
+                    password System.getenv('SONATYPE_PASSWORD')
+                }
+            }
+        }
         def localRepo = System.getenv('MVN_LOCAL_REPO')
         if (localRepo != null) {
             maven {
@@ -125,9 +150,9 @@ publishing {
         }
     }
 }
-//signing {
-//    sign publishing.publications."${project.name}"
-//}
+signing {
+    sign publishing.publications."${project.name}"
+}
 
 dependencies {
     compile group: 'com.squareup.okhttp3', name: 'okhttp', version: okHttpVersion
