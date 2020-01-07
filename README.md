@@ -5,6 +5,23 @@ Compatible with Dotykacka api version 1.62
 * Java 11
 * Gradle 6.0.2
 
+## Artifact
+
+### Maven
+```
+<dependency>
+    <groupId>pl.grizzlysoftware</groupId>
+    <artifactId>dotykacka-java-api-client</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+### Gradle
+
+```
+compile group: 'pl.grizzlysoftware', name: 'dotykacka-java-api-client', version: '0.1.0'
+```
+
 ## Dotykacka API coverage progress
 Scratched elements means - DONE
 
