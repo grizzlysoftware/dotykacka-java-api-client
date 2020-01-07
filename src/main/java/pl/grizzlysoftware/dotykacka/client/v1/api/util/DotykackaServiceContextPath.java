@@ -30,6 +30,7 @@ public interface DotykackaServiceContextPath {
     String EMPLOYEE = "/api/employee";
     String SUPPLIER = "/api/supplier";
     String WAREHOUSE = "/api/warehouse";
+    String TAG = "/api/tag";
 
     interface SALES {
         String SALES = "/api/sales";

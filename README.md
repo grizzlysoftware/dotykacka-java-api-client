@@ -104,16 +104,16 @@ Get All Products with stockstatus
 * Tableseats Service
   * Get Tableseat by ID for Branch
   * Get All Tableseats for Branch
-* Tag Service
-  * Get Tag
-  * Get All Tags for Cloud
-  * Create Tag
-* Warehouse Service 
-  * Get Warehouse
-  * Create Warehouse
-  * Get All Warehouses for Cloud
-  * Delete Warehouse
-  * Update Warehouse Field
+* ~~Tag Service~~
+  * ~~Get Tag~~
+  * ~~Get All Tags for Cloud~~
+  * ~~Create Tag~~
+* ~~Warehouse Service~~
+  * ~~Get Warehouse~~
+  * ~~Create Warehouse~~
+  * ~~Get All Warehouses for Cloud~~
+  * ~~Delete Warehouse~~
+  * ~~Update Warehouse Field~~
 
 ## Running unit tests
 ```
@@ -129,6 +129,8 @@ BRANCH_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 WAREHOUSE_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 ORDER_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 RECEIPT_ITEM_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+MONEYLOG_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+TAG_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 API_TOKEN_USERNAME=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 API_TOKEN_PASSWORD=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 ACCESS_TOKEN_API_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
@@ -145,6 +147,8 @@ CLOUD_ID=342606595
 BRANCH_ID=137478353
 ORDER_ID=1558868434627849
 RECEIPT_ITEM_ID= 
+MONEYLOG_ID=
+TAG_ID=
 WAREHOUSE_ID=1056670791789808
 ACCESS_TOKEN_USERNAME=touchpo
 ACCESS_TOKEN_PASSWORD=touchPo!2016api
