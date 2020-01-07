@@ -24,12 +24,13 @@ package pl.grizzlysoftware.util
 interface DotykackaApiInfo {
     String API_URL = System.getenv("API_URL")
     Integer CLOUD_ID = Integer.valueOf(System.getenv("CLOUD_ID"))
-    Integer BRANCH_ID = Integer.valueOf(System.getenv("BRANCH_ID"))
+    Integer BRANCH_ID = Integer.valueOf(System.getenv("BRANCH_ID"))     //TODO inconsistency in api documentation, sometimes Long, sometimes Integer
     Long ORDER_ID = Long.valueOf(System.getenv("ORDER_ID"))
     Long RECEIPT_ITEM_ID = Long.valueOf(System.getenv("RECEIPT_ITEM_ID"))
     Long MONEYLOG_ID = Long.valueOf(System.getenv("MONEYLOG_ID"))
     Long WAREHOUSE_ID = Long.valueOf(System.getenv("WAREHOUSE_ID"))
     Long TAG_ID = Long.valueOf(System.getenv("TAG_ID"))
+    Long TABLESEAT_ID = Long.valueOf(System.getenv("TABLESEAT_ID"))
     String API_TOKEN_USERNAME = System.getenv("API_TOKEN_USERNAME")
     String API_TOKEN_PASSWORD = System.getenv("API_TOKEN_PASSWORD")
     String ACCESS_TOKEN_API_TOKEN = System.getenv("ACCESS_TOKEN_API_TOKEN")
