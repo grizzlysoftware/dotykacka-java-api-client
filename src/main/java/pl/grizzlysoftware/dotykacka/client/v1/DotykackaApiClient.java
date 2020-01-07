@@ -19,14 +19,9 @@
 package pl.grizzlysoftware.dotykacka.client.v1;
 
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken;
-import pl.grizzlysoftware.dotykacka.client.v1.api.service.CustomerService;
-import pl.grizzlysoftware.dotykacka.client.v1.api.service.OAuthService;
-import pl.grizzlysoftware.dotykacka.client.v1.api.service.ProductService;
+import pl.grizzlysoftware.dotykacka.client.v1.api.service.*;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.sales.*;
-import pl.grizzlysoftware.dotykacka.client.v1.facade.CustomerServiceFacade;
-import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade;
-import pl.grizzlysoftware.dotykacka.client.v1.facade.ProductServiceFacade;
-import pl.grizzlysoftware.dotykacka.client.v1.facade.SalesServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.v1.facade.*;
 import pl.grizzlysoftware.dotykacka.model.Configuration;
 import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider;
 import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider;
@@ -46,6 +41,14 @@ public class DotykackaApiClient {
     public final ProductServiceFacade productService;
     public final CustomerServiceFacade customerService;
     public final SalesServiceFacade salesService;
+    public final SupplierServiceFacade supplierService;
+    public final EmployeeServiceFacade employeeService;
+    public final CategoryServiceFacade categoryService;
+    public final BranchServiceFacade branchService;
+    public final WarehouseServiceFacade warehouseService;
+    public final TagServiceFacade tagService;
+    public final TableSeatServiceFacade tableSeatService;
+
 
     protected Configuration configuration;
     protected AccessTokenProvider accessTokenProvider;
@@ -70,8 +73,11 @@ public class DotykackaApiClient {
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build();
 
-        productService = new ProductServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + PRODUCT, ProductService.class));
+        branchService = new BranchServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + BRANCH, BranchService.class));
+        categoryService = new CategoryServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + CATEGORY, CategoryService.class));
         customerService = new CustomerServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + CUSTOMER, CustomerService.class));
+        employeeService = new EmployeeServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + EMPLOYEE, EmployeeService.class));
+        productService = new ProductServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + PRODUCT, ProductService.class));
         salesService = new SalesServiceFacade(configuration.cloudId,
                 service(secureServiceHttpClient, configuration.url + SALES.RECEIPT, ReceiptService.class),
                 service(secureServiceHttpClient, configuration.url + SALES.ORDER, OrderService.class),
@@ -79,5 +85,9 @@ public class DotykackaApiClient {
                 service(secureServiceHttpClient, configuration.url + SALES.MONEYLOG, MoneylogService.class),
                 service(secureServiceHttpClient, configuration.url + SALES.SALES, SalesService.class)
         );
+        supplierService = new SupplierServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + SUPPLIER, SupplierService.class));
+        tableSeatService = new TableSeatServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + TABLESEAT, TableSeatService.class));
+        tagService = new TagServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + TAG, TagService.class));
+        warehouseService = new WarehouseServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + WAREHOUSE, WarehouseService.class));
     }
 }
