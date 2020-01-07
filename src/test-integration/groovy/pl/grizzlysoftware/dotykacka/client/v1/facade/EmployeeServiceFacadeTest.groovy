@@ -24,7 +24,7 @@ import pl.grizzlysoftware.util.DotykackaSecureServiceSpecification
 import pl.grizzlysoftware.util.ResponseStatusException
 import spock.lang.Unroll
 
-import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.CUSTOMER
+import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.EMPLOYEE
 import static pl.grizzlysoftware.util.DotykackaApiInfo.API_URL
 import static pl.grizzlysoftware.util.DotykackaApiInfo.CLOUD_ID
 import static pl.grizzlysoftware.util.RetrofitUtils.service
@@ -37,7 +37,7 @@ class EmployeeServiceFacadeTest extends DotykackaSecureServiceSpecification {
 
     @Override
     void setup() {
-        facade = new EmployeeServiceFacade(CLOUD_ID, service(httpClient(), API_URL + CUSTOMER, EmployeeService.class))
+        facade = new EmployeeServiceFacade(CLOUD_ID, service(httpClient(), API_URL + EMPLOYEE, EmployeeService.class))
     }
 
     @Unroll
@@ -48,7 +48,7 @@ class EmployeeServiceFacadeTest extends DotykackaSecureServiceSpecification {
             def t = thrown(ResponseStatusException)
             t.statusCode == 404
         where:
-            id << [0, 30, 490]
+            id << [1, 30, 490]
     }
 
     def "gets employee by id"() {
