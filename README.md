@@ -57,19 +57,19 @@ Dotykacka API service coverage:
   * Update order
   * Issue order
   * Issue and pay order
-* Product Service
-Get All Products with stockstatus
-  * Get Product
-  * Get Product with stockstatus
-  * Get Product stockstatus
-  * Delete Product
-  * Get All Products for Cloud
-  * Get All Ingredients for Product
-  * Update Product Field
-  * Create Product
-  * Create/Update Ingredient for Product
-  * Get All Ingredients for Cloud
-  * Delete Ingredient for Product
+* ~~Product Service~~
+  * ~~Get All Products with stockstatus~~
+  * ~~Get Product~~
+  * ~~Get Product with stockstatus~~
+  * ~~Get Product stockstatus~~
+  * ~~Delete Product~~
+  * ~~Get All Products for Cloud~~
+  * ~~Get All Ingredients for Product~~
+  * ~~Update Product Field~~
+  * ~~Create Product~~
+  * ~~Create/Update Ingredient for Product~~ //not tested yet
+  * ~~Get All Ingredients for Cloud~~ 
+  * ~~Delete Ingredient for Product~~ //not tested yet
 * Reservation Service
   * Update Reservation Field
   * Delete Reservation
@@ -132,6 +132,7 @@ RECEIPT_ITEM_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 MONEYLOG_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 TAG_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 TABLESEAT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+PRODUCT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 API_TOKEN_USERNAME=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 API_TOKEN_PASSWORD=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 ACCESS_TOKEN_API_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
@@ -151,6 +152,7 @@ RECEIPT_ITEM_ID=0
 MONEYLOG_ID=0
 TAG_ID=0
 TABLESEAT_ID=0
+PRODUCT_ID=0
 WAREHOUSE_ID=1056670791789808
 ACCESS_TOKEN_USERNAME=touchpo
 ACCESS_TOKEN_PASSWORD=touchPo!2016api

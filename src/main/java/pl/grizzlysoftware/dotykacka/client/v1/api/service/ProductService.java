@@ -18,11 +18,12 @@
 
 package pl.grizzlysoftware.dotykacka.client.v1.api.service;
 
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.Ingredient;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.ProductIngredient;
+import pl.grizzlysoftware.dotykacka.client.v1.api.dto.product.Product;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.product.ProductWithStockStatus;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
+import retrofit2.http.*;
 
 import java.util.Collection;
 
@@ -30,6 +31,46 @@ import java.util.Collection;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public interface ProductService {
-    @GET("{cloudId}/{warehouseId}/list?offset=%s&limit=%s")
-    Call<Collection<ProductWithStockStatus>> getProductsWithStockStatus(@Path("cloudId") Integer cloudId, @Path("warehouseId") long warehouseId, @Query("offset") int offset, @Query("limit") int limit);
+
+    @GET("{cloudId}/{warehouseId}/list")
+    Call<Collection<ProductWithStockStatus>> getProductsWithStockStatus(@Path("cloudId") Integer cloudId, @Path("warehouseId") long warehouseId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sortBy);
+
+    @GET("{cloudId}/{productId}")
+    Call<Product> getProduct(@Path("cloudId") Integer cloudId, @Path("productId") Long productId);
+
+    @GET("withstockstatus/{cloudId}/{warehouseId}/{productId}")
+    Call<ProductWithStockStatus> getProductWithStockStatus(@Path("cloudId") Integer cloudId, @Path("warehouseId") Long warehouseId, @Path("productId") Long productId);
+
+    @GET("stockstatus/{cloudId}/{warehouseId}/{productId}")
+    Call<ProductWithStockStatus> getProductStockStatus(@Path("cloudId") Integer cloudId, @Path("warehouseId") Long warehouseId, @Path("productId") Long productId);
+
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"})
+    @POST("{cloudId}/create")
+    Call<Product> createProduct(@Path("cloudId") Integer cloudId, @Body Product product);
+
+    @GET("{cloudId}/{id}/delete")
+    Call<Product> deleteProduct(@Path("cloudId") Integer cloudId, @Path("id") Long id);
+
+    @POST("{cloudId}/{id}/update")
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"})
+    Call<Product> updateProduct(@Path("cloudId") Integer cloudId, @Path("id") Long id, @Body Product consumer);
+
+    @GET("{cloudId}")
+    Call<Collection<Product>> getProducts(@Path("cloudId") Integer cloudId, @Query("offset") int offset, @Query("limit") int limit, @Query("sort") String sortBy);
+
+    @GET("{cloudId}/{productId}/ingredients")
+    Call<Collection<ProductWithStockStatus>> getProductsIngredients(@Path("cloudId") Integer cloudId, @Path("productId") Long productId, @Query("offset") int offset, @Query("limit") int limit, @Query("sort") String sortBy);
+
+    @POST("{cloudId}/{productId}/ingredients/edit")
+    Call<Ingredient> createProductIngredient(@Path("cloudId") Integer cloudId, @Body ProductIngredient productIngredient);
+
+    @POST("{cloudId}/{productId}/ingredients/{ingredientId}/delete")
+    Call<Ingredient> deleteProductIngredient(@Path("cloudId") Integer cloudId, @Path("ingredientId") Long ingredientId, @Body ProductIngredient productIngredient);
+
+    @GET("{cloudId}/ingredients")
+    Call<Collection<Ingredient>> getIngredients(@Path("cloudId") Integer cloudId, @Query("offset") int offset, @Query("limit") int limit, @Query("sort") String sortBy);
 }
