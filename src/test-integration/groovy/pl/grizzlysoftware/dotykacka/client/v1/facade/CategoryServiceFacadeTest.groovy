@@ -57,7 +57,7 @@ class CategoryServiceFacadeTest extends DotykackaSecureServiceSpecification {
             def seek = facade.getCategory(out2.id)
         then:
             seek != null
-            seek.deleted == 1
+            seek.isDeleted == true
         cleanup:
             facade.deleteCategory(out.id)
     }

@@ -17,13 +17,13 @@ public class Category {
     @JsonProperty("cloudid")
     public Integer cloudId;
     @JsonProperty("deleted")
-    public Integer deleted;
+    public Boolean isDeleted;
     @JsonProperty("display")
-    public Integer display;
+    public Boolean isDisplayed;
     @JsonProperty("eetsubjectid")
     public Long eetSubjectId;
     @JsonProperty("externalid")
-    public Long externalId;
+    public String externalId;
     @JsonProperty("fiscalizationdisabled")
     public Integer fiscalizationDisabled;
     @JsonProperty("flags")
@@ -45,7 +45,7 @@ public class Category {
     @JsonProperty("pgKey")
     public Long pgKey;
     @JsonProperty("serialVersionUID")
-    public Integer serialVersionUID;
+    public Long serialVersionUID;
     @JsonProperty("sortorder")
     public Integer sortOrder;
     @JsonProperty("vat")
