@@ -8,7 +8,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProductWithStockStatus {
+public class Product {
     @JsonProperty("productid")
     public Long id;
     @JsonProperty("canonicalname")

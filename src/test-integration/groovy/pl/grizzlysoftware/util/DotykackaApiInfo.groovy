@@ -31,6 +31,7 @@ interface DotykackaApiInfo {
     Long WAREHOUSE_ID = Long.valueOf(System.getenv("WAREHOUSE_ID"))
     Long TAG_ID = Long.valueOf(System.getenv("TAG_ID"))
     Long TABLESEAT_ID = Long.valueOf(System.getenv("TABLESEAT_ID"))
+    Long PRODUCT_ID = Long.valueOf(System.getenv("PRODUCT_ID"))
     String API_TOKEN_USERNAME = System.getenv("API_TOKEN_USERNAME")
     String API_TOKEN_PASSWORD = System.getenv("API_TOKEN_PASSWORD")
     String ACCESS_TOKEN_API_TOKEN = System.getenv("ACCESS_TOKEN_API_TOKEN")
