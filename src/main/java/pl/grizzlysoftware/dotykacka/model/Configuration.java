@@ -34,7 +34,7 @@ public class Configuration implements Cloneable {
         if (isEmpty(url)) {
             return false;
         }
-        if (cloudId != null) {
+        if (cloudId == null) {
             return false;
         }
         if (accessTokenAuthCredentials == null) {
