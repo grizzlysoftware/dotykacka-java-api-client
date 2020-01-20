@@ -39,6 +39,7 @@ public final class RetrofitUtils {
         }
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_USING_DEFAULT_VALUE);
+        mapper.enable(MapperFeature.ALLOW_EXPLICIT_PROPERTY_RENAMING);
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .client(client)
