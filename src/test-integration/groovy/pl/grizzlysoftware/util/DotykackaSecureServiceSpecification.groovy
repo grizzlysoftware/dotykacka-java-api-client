@@ -29,8 +29,8 @@ abstract class DotykackaSecureServiceSpecification extends Specification {
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build()
         oauthService = new OAuthServiceFacade(service(oAuthHttpClient, API_URL + OAUTH, OAuthService.class))
-        apiTokenProvider = new ApiTokenProvider(oauthService, new Credentials(API_TOKEN_USERNAME, API_TOKEN_PASSWORD))
-        accessTokenProvider = new AccessTokenProvider(oauthService, apiTokenProvider, new Credentials(ACCESS_TOKEN_USERNAME, ACCESS_TOKEN_PASSWORD), null)
+        apiTokenProvider = new ApiTokenProvider(oauthService, new OAuthApiToken(ACCESS_TOKEN_API_TOKEN))
+        accessTokenProvider = new AccessTokenProvider(oauthService, apiTokenProvider, new Credentials(ACCESS_TOKEN_USERNAME, ACCESS_TOKEN_PASSWORD), ACCESS_TOKEN_API_TOKEN)
     }
 
     OkHttpClient httpClient() {
