@@ -65,11 +65,11 @@ public interface ProductService {
     @GET("{cloudId}/{productId}/ingredients")
     Call<Collection<ProductWithStockStatus>> getProductsIngredients(@Path("cloudId") Long cloudId, @Path("productId") Long productId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sortBy);
 
-    @POST("{cloudId}/{productId}/ingredients/edit")
+    @POST("{cloudId}/ingredients/edit")
     Call<Ingredient> createProductIngredient(@Path("cloudId") Long cloudId, @Body ProductIngredient productIngredient);
 
-    @POST("{cloudId}/{productId}/ingredients/{ingredientId}/delete")
-    Call<Ingredient> deleteProductIngredient(@Path("cloudId") Long cloudId, @Path("ingredientId") Long ingredientId, @Body ProductIngredient productIngredient);
+    @GET("{cloudId}/ingredients/{productIngredientId}/delete")
+    Call<Ingredient> deleteProductIngredient(@Path("cloudId") Long cloudId, @Path("productIngredientId") Long productIngredientId);
 
     @GET("{cloudId}/ingredients")
     Call<Collection<Ingredient>> getIngredients(@Path("cloudId") Long cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sortBy);

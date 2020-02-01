@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductIngredient {
     @JsonProperty("ingredienceproductId")
-    public Long productId;
+    public Long ingredientId;
     @JsonProperty("belongstoproductId")
-    public Long parentProductId;
+    public Long productId;
     @JsonProperty("cloudid")
     public Long cloudId;
     @JsonProperty("ingrediencemapid")
-    public Long ingredientId;
+    public Long productIngredientId;
     @JsonProperty("deleted")
     public Boolean isDeleted;
     @JsonProperty("quantity")

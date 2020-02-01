@@ -126,6 +126,8 @@ public class ProductServiceFacade extends DotykackaApiServiceFacade<ProductServi
 
     /**
      * TODO: to be tested - it's not possible to create a product ingredient. I think this method is actually a binding between product and ingredient
+     *
+     * UPDATE 01.02.2020 - ingredient is actually a product
      * @param productIngredient
      * @return
      */
@@ -136,11 +138,13 @@ public class ProductServiceFacade extends DotykackaApiServiceFacade<ProductServi
 
     /**
      * TODO: to be tested - it's not possible to create a product ingredient. I think this method is actually a binding between product and ingredient
-     * @param productIngredient
+     *
+     * UPDATE 01.02.2020 - ingredient is actually a product
+     * @param productIngredientId
      * @return
      */
-    public Ingredient deleteProductIngredient(ProductIngredient productIngredient) {
-        var out = execute(service.deleteProductIngredient(cloudId, productIngredient.ingredientId, productIngredient));
+    public Ingredient deleteProductIngredient(Long productIngredientId) {
+        var out = execute(service.deleteProductIngredient(cloudId, productIngredientId));
         return out;
     }
 }
