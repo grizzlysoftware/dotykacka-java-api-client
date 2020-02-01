@@ -11,7 +11,7 @@ import java.util.Collection;
  */
 public class TagServiceFacade extends DotykackaApiServiceFacade<TagService> {
     protected BatchLoader batchLoader;
-    public TagServiceFacade(Integer cloudId, TagService service) {
+    public TagServiceFacade(Long cloudId, TagService service) {
         super(cloudId, service);
         this.batchLoader = new BatchLoader(100);
     }

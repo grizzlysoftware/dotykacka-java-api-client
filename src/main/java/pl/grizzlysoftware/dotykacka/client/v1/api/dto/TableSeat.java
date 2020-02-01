@@ -15,15 +15,15 @@ public class TableSeat {
     @JsonProperty("name")
     public String name;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("branchid")
-    public Integer branchId;
+    public Long branchId;
     @JsonProperty("closeddate")
     public Long closedDate;
     @JsonProperty("display")
     public Boolean isDisplayed;
     @JsonProperty("employeeId")
-    public Integer employeeId;
+    public Long employeeId;
     @JsonProperty("enabled")
     public Boolean isEnabled;
     @JsonProperty("isalarmcalled")

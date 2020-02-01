@@ -17,9 +17,9 @@ public class Moneylog {
     @JsonProperty("amount")
     public Double amount;
     @JsonProperty("branchid")
-    public Integer branchId;
+    public Long branchId;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("created")
     public Long created;
     @JsonProperty("dirtype")

@@ -13,7 +13,7 @@ public class EmployeeServiceFacade extends DotykackaApiServiceFacade<EmployeeSer
 
     protected BatchLoader batchLoader;
 
-    public EmployeeServiceFacade(Integer cloudId, EmployeeService service) {
+    public EmployeeServiceFacade(Long cloudId, EmployeeService service) {
         super(cloudId, service);
         this.batchLoader = new BatchLoader(100);
     }

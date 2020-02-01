@@ -9,14 +9,14 @@ import static java.util.Objects.requireNonNull;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public class BasicDotykackaApiServiceFacade extends RetrofitApiServiceFacade {
-    protected Integer cloudId;
+    protected Long cloudId;
 
-    public BasicDotykackaApiServiceFacade(RetrofitCallExecutor executor, Integer cloudId) {
+    public BasicDotykackaApiServiceFacade(RetrofitCallExecutor executor, Long cloudId) {
         super(executor);
         this.cloudId = requireNonNull(cloudId);
     }
 
-    public BasicDotykackaApiServiceFacade(Integer cloudId) {
+    public BasicDotykackaApiServiceFacade(Long cloudId) {
         this.cloudId = requireNonNull(cloudId);
     }
 }

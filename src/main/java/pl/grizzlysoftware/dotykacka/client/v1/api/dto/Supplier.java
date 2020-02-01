@@ -19,7 +19,7 @@ public class Supplier {
     @JsonProperty("city")
     public String city;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("companyid")
     public Long companyId;
     @JsonProperty("countrycode")

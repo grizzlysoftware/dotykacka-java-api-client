@@ -23,5 +23,5 @@ public interface OrderOpenService {
      * @return
      */
     @GET("{cloudId}/{branchId}")
-    Call<Collection<Order>> getOpenOrders(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Order>> getOpenOrders(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 }

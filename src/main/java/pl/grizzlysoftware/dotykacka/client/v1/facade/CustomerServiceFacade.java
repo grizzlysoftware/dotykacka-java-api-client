@@ -12,7 +12,7 @@ import java.util.Collection;
 public class CustomerServiceFacade extends DotykackaApiServiceFacade<CustomerService> {
 
     protected BatchLoader batchLoader;
-    public CustomerServiceFacade(Integer cloudId, CustomerService service) {
+    public CustomerServiceFacade(Long cloudId, CustomerService service) {
         super(cloudId, service);
         this.batchLoader = new BatchLoader(100);
     }

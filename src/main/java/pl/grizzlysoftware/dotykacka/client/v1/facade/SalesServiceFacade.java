@@ -26,7 +26,7 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
     protected SalesService salesService;
     protected BatchLoader batchLoader;
 
-    public SalesServiceFacade(Integer cloudId, ReceiptService receiptService, OrderService orderService, OrderOpenService orderOpenService, MoneylogService moneylogService, SalesService salesService) {
+    public SalesServiceFacade(Long cloudId, ReceiptService receiptService, OrderService orderService, OrderOpenService orderOpenService, MoneylogService moneylogService, SalesService salesService) {
         super(cloudId);
         this.receiptService = requireNonNull(receiptService);
         this.orderService = requireNonNull(orderService);
@@ -36,7 +36,7 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         this.batchLoader = new BatchLoader(100);
     }
 
-    public Moneylog getMoneylog(Integer branchId, Long moneylogId) {
+    public Moneylog getMoneylog(Long branchId, Long moneylogId) {
         var out = execute(moneylogService.getMoneylogById(cloudId, branchId, moneylogId));
         return out;
     }
@@ -57,28 +57,28 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         return out;
     }
 
-    public Collection<Moneylog> getMoneylogs(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
+    public Collection<Moneylog> getMoneylogs(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
         var dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         var out = execute(moneylogService.getMoneylogs(cloudId, branchId, dateRange, dateField, limit, offset, sort));
         return out;
     }
 
-    public Collection<Moneylog> getMoneylogs(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
+    public Collection<Moneylog> getMoneylogs(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
         var out = batchLoader.load(page -> getMoneylogs(branchId, startDate, endDate, dateField, page.limit, page.offset, sort));
         return out;
     }
 
-    public Collection<Moneylog> getMoneylogs(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
+    public Collection<Moneylog> getMoneylogs(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
         var out = getMoneylogs(branchId, startDate, endDate, dateField, null);
         return out;
     }
 
-    public Collection<Shift> getShiftRanges(Integer branchId, Integer limit, Integer offset) {
+    public Collection<Shift> getShiftRanges(Long branchId, Integer limit, Integer offset) {
         var out = execute(moneylogService.getShiftRanges(cloudId, branchId, limit, offset));
         return out;
     }
 
-    public Collection<Shift> getShiftRanges(Integer branchId) {
+    public Collection<Shift> getShiftRanges(Long branchId) {
         var out = batchLoader.load(page -> getShiftRanges(branchId, page.limit, page.offset));
         return out;
     }
@@ -88,7 +88,7 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         return out;
     }
 
-    public Order getOrder(Integer branchId, Long orderId) {
+    public Order getOrder(Long branchId, Long orderId) {
         var out = execute(orderService.getOrderById(cloudId, branchId, orderId));
         return out;
     }
@@ -109,39 +109,39 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         return out;
     }
 
-    public Collection<Order> getOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
+    public Collection<Order> getOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
         var dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         var out = execute(orderService.getOrders(cloudId, branchId, dateRange, dateField, limit, offset, sort));
         return out;
     }
 
-    public Collection<Order> getOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
+    public Collection<Order> getOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
         var out = batchLoader.load(page -> getOrders(branchId, startDate, endDate, dateField, page.limit, page.offset, sort));
         return out;
     }
 
-    public Collection<Order> getOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
+    public Collection<Order> getOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
         var out = getOrders(branchId, startDate, endDate, dateField, null);
         return out;
     }
 
-    public Collection<Order> getOpenOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
+    public Collection<Order> getOpenOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, Integer limit, Integer offset, String sort) {
         var dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         var out = execute(orderOpenService.getOpenOrders(cloudId, branchId, dateRange, dateField, limit, offset, sort));
         return out;
     }
 
-    public Collection<Order> getOpenOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
+    public Collection<Order> getOpenOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField, String sort) {
         var out = batchLoader.load(page -> getOpenOrders(branchId, startDate, endDate, dateField, page.limit, page.offset, sort));
         return out;
     }
 
-    public Collection<Order> getOpenOrders(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
+    public Collection<Order> getOpenOrders(Long branchId, LocalDateTime startDate, LocalDateTime endDate, String dateField) {
         var out = getOpenOrders(branchId, startDate, endDate, dateField, null);
         return out;
     }
 
-    public SalesReport getSalesReport(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, Boolean isVatPayer) {
+    public SalesReport getSalesReport(Long branchId, LocalDateTime startDate, LocalDateTime endDate, Boolean isVatPayer) {
         var dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         var out = execute(salesService.getSalesReport(cloudId, branchId, dateRange, isVatPayer));
         return out;
@@ -158,7 +158,7 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         return out;
     }
 
-    public Collection<ReceiptItem> getReceiptItems(Integer branchId, LocalDateTime startDate, LocalDateTime endDate, Integer limit, Integer offset, String sort) {
+    public Collection<ReceiptItem> getReceiptItems(Long branchId, LocalDateTime startDate, LocalDateTime endDate, Integer limit, Integer offset, String sort) {
         var dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         var out = execute(receiptService.getReceiptItems(cloudId, branchId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;

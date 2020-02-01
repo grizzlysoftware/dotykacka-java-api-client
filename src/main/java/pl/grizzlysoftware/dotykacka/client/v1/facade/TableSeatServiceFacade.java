@@ -11,32 +11,32 @@ import java.util.Collection;
  */
 public class TableSeatServiceFacade extends DotykackaApiServiceFacade<TableSeatService> {
     protected BatchLoader batchLoader;
-    public TableSeatServiceFacade(Integer cloudId, TableSeatService service) {
+    public TableSeatServiceFacade(Long cloudId, TableSeatService service) {
         super(cloudId, service);
         this.batchLoader = new BatchLoader(100);
     }
 
-    public TableSeat getTableSeat(Integer branchId, Long id) {
+    public TableSeat getTableSeat(Long branchId, Long id) {
         var out = execute(service.getTableSeat(cloudId, branchId, id));
         return out;
     }
 
-    public Collection<TableSeat> getTableSeats(Integer branchId, int limit, int offset, String sort) {
+    public Collection<TableSeat> getTableSeats(Long branchId, int limit, int offset, String sort) {
         var out = execute(service.getTableSeats(cloudId, branchId, limit, offset, sort));
         return out;
     }
 
-    public Collection<TableSeat> getTableSeats(Integer branchId, int limit, int offset) {
+    public Collection<TableSeat> getTableSeats(Long branchId, int limit, int offset) {
         var out = getTableSeats(branchId, limit, offset, null);
         return out;
     }
 
-    public Collection<TableSeat> getTableSeats(Integer branchId, String sort) {
+    public Collection<TableSeat> getTableSeats(Long branchId, String sort) {
         var out = batchLoader.load(page -> getTableSeats(branchId, page.limit, page.offset, sort));
         return out;
     }
 
-    public Collection<TableSeat> getTableSeats(Integer branchId) {
+    public Collection<TableSeat> getTableSeats(Long branchId) {
         var out = getTableSeats(branchId,null);
         return out;
     }

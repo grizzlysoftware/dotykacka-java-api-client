@@ -37,7 +37,7 @@ public interface TableSeatService {
      * @return
      */
     @GET("{cloudId}/{branchId}/{tableSeatId}")
-    Call<TableSeat> getTableSeat(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Path("tableSeatId") Long tableSeatId);
+    Call<TableSeat> getTableSeat(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Path("tableSeatId") Long tableSeatId);
 
     /**
      * @param cloudId  - cloud id
@@ -48,5 +48,5 @@ public interface TableSeatService {
      * @return
      */
     @GET("{cloudId}/{branchId}")
-    Call<Collection<TableSeat>> getTableSeats(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
+    Call<Collection<TableSeat>> getTableSeats(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
 }

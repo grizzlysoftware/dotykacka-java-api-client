@@ -11,12 +11,12 @@ import java.util.Collection;
  */
 public class BranchServiceFacade extends DotykackaApiServiceFacade<BranchService> {
     protected BatchLoader batchLoader;
-    public BranchServiceFacade(Integer cloudId, BranchService service) {
+    public BranchServiceFacade(Long cloudId, BranchService service) {
         super(cloudId, service);
         this.batchLoader = new BatchLoader(100);
     }
 
-    public Branch getBranch(Integer id) {
+    public Branch getBranch(Long id) {
         var out = execute(service.getBranch(cloudId, id));
         return out;
     }

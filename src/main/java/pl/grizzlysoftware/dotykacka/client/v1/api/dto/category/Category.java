@@ -15,7 +15,7 @@ public class Category {
     @JsonProperty("categoryid")
     public Long id;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("deleted")
     public Boolean isDeleted;
     @JsonProperty("display")
@@ -41,7 +41,7 @@ public class Category {
     @JsonProperty("numcanonicalname")
     public String numCanonicalName;
     @JsonProperty("parentcategoryid")
-    public Integer parentcategoryId;
+    public Long parentcategoryId;
     @JsonProperty("pgKey")
     public Long pgKey;
     @JsonProperty("serialVersionUID")

@@ -23,8 +23,8 @@ package pl.grizzlysoftware.util
  */
 interface DotykackaApiInfo {
     String API_URL = System.getenv("API_URL")
-    Integer CLOUD_ID = Integer.valueOf(System.getenv("CLOUD_ID"))
-    Integer BRANCH_ID = Integer.valueOf(System.getenv("BRANCH_ID"))     //TODO inconsistency in api documentation, sometimes Long, sometimes Integer
+    Long CLOUD_ID = Long.valueOf(System.getenv("CLOUD_ID"))
+    Long BRANCH_ID = Long.valueOf(System.getenv("BRANCH_ID"))     //TODO inconsistency in api documentation, sometimes Long, sometimes Integer
     Long ORDER_ID = Long.valueOf(System.getenv("ORDER_ID"))
     Long RECEIPT_ITEM_ID = Long.valueOf(System.getenv("RECEIPT_ITEM_ID"))
     Long MONEYLOG_ID = Long.valueOf(System.getenv("MONEYLOG_ID"))

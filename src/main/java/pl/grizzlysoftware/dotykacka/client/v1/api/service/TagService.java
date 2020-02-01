@@ -37,7 +37,7 @@ public interface TagService {
      * @return
      */
     @POST("{cloudId}/{tagType}/create")
-    Call<Tag> createTag(@Path("cloudId") Integer cloudId, @Path("tagType") TagType tagType, @Body Tag tag);
+    Call<Tag> createTag(@Path("cloudId") Long cloudId, @Path("tagType") TagType tagType, @Body Tag tag);
 
 //    /**
 //     * @param cloudId - cloud id
@@ -46,7 +46,7 @@ public interface TagService {
 //     * @return
 //     */
 //    @POST("{cloudId}/{tagId}/update")
-//    Call<Tag> updateTag(@Path("cloudId") Integer cloudId, @Path("tagId") Long tagId, @Body Tag tag);
+//    Call<Tag> updateTag(@Path("cloudId") Long cloudId, @Path("tagId") Long tagId, @Body Tag tag);
 //
 //    /**
 //     * @param cloudId - cloud id
@@ -54,7 +54,7 @@ public interface TagService {
 //     * @return
 //     */
 //    @GET("{cloudId}/{tagId}/delete")
-//    Call<Tag> deleteTag(@Path("cloudId") Integer cloudId, @Path("tagId") Long tagId);
+//    Call<Tag> deleteTag(@Path("cloudId") Long cloudId, @Path("tagId") Long tagId);
 
     /**
      * @param cloudId - cloud id
@@ -62,7 +62,7 @@ public interface TagService {
      * @return
      */
     @GET("{cloudId}/{tagId}")
-    Call<Tag> getTag(@Path("cloudId") Integer cloudId, @Path("tagId") Long tagId);
+    Call<Tag> getTag(@Path("cloudId") Long cloudId, @Path("tagId") Long tagId);
 
     /**
      * @param cloudId - cloud id
@@ -72,5 +72,5 @@ public interface TagService {
      * @return
      */
     @GET("{cloudId}")
-    Call<Collection<Tag>> getTags(@Path("cloudId") Integer cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
+    Call<Collection<Tag>> getTags(@Path("cloudId") Long cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
 }

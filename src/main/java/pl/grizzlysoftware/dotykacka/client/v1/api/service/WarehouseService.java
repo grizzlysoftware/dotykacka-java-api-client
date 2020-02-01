@@ -34,7 +34,7 @@ public interface WarehouseService {
      * @return
      */
     @GET("{cloudId}/{warehouseId}")
-    Call<Warehouse> getWarehouse(@Path("cloudId") Integer cloudId, @Path("warehouseId") Long warehouseId);
+    Call<Warehouse> getWarehouse(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId);
 
     /**
      * @param cloudId  - cloud id
@@ -42,7 +42,7 @@ public interface WarehouseService {
      * @return
      */
     @POST("{cloudId}/create")
-    Call<Warehouse> createWarehouse(@Path("cloudId") Integer cloudId, @Body Warehouse warehouse);
+    Call<Warehouse> createWarehouse(@Path("cloudId") Long cloudId, @Body Warehouse warehouse);
 
     /**
      * @param cloudId  - cloud id
@@ -50,7 +50,7 @@ public interface WarehouseService {
      * @return
      */
     @POST("{cloudId}/{warehouseId}/update")
-    Call<Warehouse> updateWarehouse(@Path("cloudId") Integer cloudId, @Path("warehouseId") Long warehouseId, @Body Warehouse warehouse);
+    Call<Warehouse> updateWarehouse(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId, @Body Warehouse warehouse);
 
     /**
      * @param cloudId    - cloud id
@@ -58,7 +58,7 @@ public interface WarehouseService {
      * @return
      */
     @GET("{cloudId}/{warehouseId}/delete")
-    Call<Warehouse> deleteWarehouse(@Path("cloudId") Integer cloudId, @Path("warehouseId") Long warehouseId);
+    Call<Warehouse> deleteWarehouse(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId);
     
     /**
      * @param cloudId   - cloud id
@@ -68,5 +68,5 @@ public interface WarehouseService {
      * @return
      */
     @GET("{cloudId}")
-    Call<Collection<Warehouse>> getWarehouses(@Path("cloudId") Integer cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
+    Call<Collection<Warehouse>> getWarehouses(@Path("cloudId") Long cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
 }

@@ -25,7 +25,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  */
 public class Configuration implements Cloneable {
     public String url;
-    public Integer cloudId;
+    public Long cloudId;
     public Credentials accessTokenAuthCredentials;
     public Credentials apiTokenAuthCredentials;
     public String apiToken;

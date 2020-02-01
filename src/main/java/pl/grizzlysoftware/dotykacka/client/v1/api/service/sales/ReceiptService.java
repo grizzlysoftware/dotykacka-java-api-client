@@ -18,7 +18,7 @@ public interface ReceiptService {
      * @return
      */
     @GET("{cloudId}/{receiptId}")
-    Call<ReceiptItem> getReceiptItem(@Path("cloudId") Integer cloudId, @Path("receiptId") Long receiptId);
+    Call<ReceiptItem> getReceiptItem(@Path("cloudId") Long cloudId, @Path("receiptId") Long receiptId);
 
     /**
      * @param cloudId   - cloud id
@@ -29,7 +29,7 @@ public interface ReceiptService {
      * @param sort      - Description: Sort parameters in format: column_name1,column_name2 //means asc -column_name1,-column_name2 //means desc
      */
     @GET("list/{cloudId}")
-    Call<Collection<ReceiptItem>> getReceiptItems(@Path("cloudId") Integer cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<ReceiptItem>> getReceiptItems(@Path("cloudId") Long cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 
     /**
      * @param cloudId   - cloud id
@@ -41,5 +41,5 @@ public interface ReceiptService {
      * @param sort      - Description: Sort parameters in format: column_name1,column_name2 //means asc -column_name1,-column_name2 //means desc
      */
     @GET("list/{cloudId}/{branchId}")
-    Call<Collection<ReceiptItem>> getReceiptItems(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<ReceiptItem>> getReceiptItems(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 }

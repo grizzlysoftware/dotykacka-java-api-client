@@ -25,7 +25,7 @@ public class Employee {;
     @JsonProperty("canonicalname")
     private String canonicalname;
     @JsonProperty("cloudid")
-    private Integer cloudId;
+    private Long cloudId;
     @JsonProperty("deleted")
     private Boolean isDeleted;
     @JsonProperty("email")

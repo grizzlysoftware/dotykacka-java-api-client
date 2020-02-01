@@ -11,26 +11,26 @@ import java.util.Collection;
  */
 public interface CustomerService {
     @GET("{cloudId}/{id}")
-    Call<Customer> getCustomer(@Path("cloudId") Integer cloudId, @Path("id") Long id);
+    Call<Customer> getCustomer(@Path("cloudId") Long cloudId, @Path("id") Long id);
 
     @GET("{cloudId}")
-    Call<Collection<Customer>> getCustomers(@Path("cloudId") Integer cloudId, @Query("limit") Integer limit, @Query("offset") Integer offset);
+    Call<Collection<Customer>> getCustomers(@Path("cloudId") Long cloudId, @Query("limit") Integer limit, @Query("offset") Integer offset);
 
     @GET("{cloudId}")
-    Call<Collection<Customer>> getCustomers(@Path("cloudId") Integer cloudId, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Customer>> getCustomers(@Path("cloudId") Long cloudId, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 
     @Headers({
             "Content-Type: application/json",
             "Accept: application/json"})
     @POST("{cloudId}/create")
-    Call<Customer> createCustomer(@Path("cloudId") Integer cloudId, @Body Customer consumer);
+    Call<Customer> createCustomer(@Path("cloudId") Long cloudId, @Body Customer consumer);
 
     @GET("{cloudId}/{id}/delete")
-    Call<Customer> deleteCustomer(@Path("cloudId") Integer cloudId, @Path("id") Long id, @Query("anonymize") Boolean anonymizeCustomer);
+    Call<Customer> deleteCustomer(@Path("cloudId") Long cloudId, @Path("id") Long id, @Query("anonymize") Boolean anonymizeCustomer);
 
     @POST("{cloudId}/{id}/update")
     @Headers({
             "Content-Type: application/json",
             "Accept: application/json"})
-    Call<Customer> updateCustomer(@Path("cloudId") Integer cloudId, @Path("id") Long id, @Body Customer consumer);
+    Call<Customer> updateCustomer(@Path("cloudId") Long cloudId, @Path("id") Long id, @Body Customer consumer);
 }

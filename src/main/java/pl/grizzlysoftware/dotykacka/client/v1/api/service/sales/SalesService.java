@@ -18,5 +18,5 @@ public interface SalesService {
      * @param isVatPayer - Name of the field for given dateRange filter
      */
     @GET("report/{cloudId}/{branchId}")
-    Call<SalesReport> getSalesReport(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("dateRange") String dateRange, @Query("vatPayer") Boolean isVatPayer);
+    Call<SalesReport> getSalesReport(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("dateRange") String dateRange, @Query("vatPayer") Boolean isVatPayer);
 }

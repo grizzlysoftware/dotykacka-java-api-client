@@ -21,7 +21,7 @@ public interface MoneylogService {
      * @return
      */
     @GET("{cloudId}/{branchId}/{moneylogId}")
-    Call<Moneylog> getMoneylogById(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Path("moneylogId") Long moneylogId);
+    Call<Moneylog> getMoneylogById(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Path("moneylogId") Long moneylogId);
 
     /**
      * @param cloudId   - cloud id
@@ -33,7 +33,7 @@ public interface MoneylogService {
      * @return
      */
     @GET("list/{cloudId}")
-    Call<Collection<Moneylog>> getMoneylogs(@Path("cloudId") Integer cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Moneylog>> getMoneylogs(@Path("cloudId") Long cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 
     /**
      * @param cloudId   - cloud id
@@ -46,7 +46,7 @@ public interface MoneylogService {
      * @return
      */
     @GET("list/{cloudId}/{branchId}")
-    Call<Collection<Moneylog>> getMoneylogs(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Moneylog>> getMoneylogs(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 
     /**
      * @param cloudId   - cloud id
@@ -56,6 +56,6 @@ public interface MoneylogService {
      * @return
      */
     @GET("shifts/{cloudId}/{branchId}")
-    Call<Collection<Shift>> getShiftRanges(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("limit") Integer limit, @Query("offset") Integer offset);
+    Call<Collection<Shift>> getShiftRanges(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("limit") Integer limit, @Query("offset") Integer offset);
 
 }

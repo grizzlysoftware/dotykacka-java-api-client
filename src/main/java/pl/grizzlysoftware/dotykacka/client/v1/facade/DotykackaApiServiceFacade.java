@@ -10,12 +10,12 @@ import static java.util.Objects.requireNonNull;
 public class DotykackaApiServiceFacade<T> extends BasicDotykackaApiServiceFacade {
     protected T service;
 
-    public DotykackaApiServiceFacade(RetrofitCallExecutor executor, Integer cloudId, T service) {
+    public DotykackaApiServiceFacade(RetrofitCallExecutor executor, Long cloudId, T service) {
         super(executor, cloudId);
         this.service = requireNonNull(service);
     }
 
-    public DotykackaApiServiceFacade(Integer cloudId, T service) {
+    public DotykackaApiServiceFacade(Long cloudId, T service) {
         super(cloudId);
         this.service = requireNonNull(service);
     }

@@ -36,7 +36,7 @@ public interface BranchService {
      * @return
      */
     @GET("{cloudId}/{branchId}")
-    Call<Branch> getBranch(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId);
+    Call<Branch> getBranch(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId);
 
     /**
      * @param cloudId   - cloud id
@@ -46,5 +46,5 @@ public interface BranchService {
      * @return
      */
     @GET("{cloudId}")
-    Call<Collection<Branch>> getBranches(@Path("cloudId") Integer cloudId, @Query("limit") int limit, @Query("offset") int offset,  @Query("sort") String sort);
+    Call<Collection<Branch>> getBranches(@Path("cloudId") Long cloudId, @Query("limit") int limit, @Query("offset") int offset,  @Query("sort") String sort);
 }

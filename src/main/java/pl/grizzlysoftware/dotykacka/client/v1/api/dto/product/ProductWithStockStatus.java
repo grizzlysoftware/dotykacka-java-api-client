@@ -22,13 +22,13 @@ public class ProductWithStockStatus {
     @JsonProperty("categoryname")
     public String categoryname;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("ctlgAmountId")
-    public Integer ctlgAmountId;
+    public Long ctlgAmountId;
     @JsonProperty("ctlgBindType")
     public Integer ctlgBindType;
     @JsonProperty("ctlgItemId")
-    public Integer ctlgItemId;
+    public Long ctlgItemId;
     @JsonProperty("currency")
     public String currency;
     @JsonProperty("deleted")
@@ -46,7 +46,7 @@ public class ProductWithStockStatus {
     @JsonProperty("ean")
     public String ean;
     @JsonProperty("eetsubjectid")
-    public Integer eetSubjectId;
+    public Long eetSubjectId;
     @JsonProperty("externalid")
     public String externalId;
     @JsonProperty("fiscalizationdisabled")

@@ -35,7 +35,7 @@ public interface CategoryService {
      * @return
      */
     @POST("{cloudId}/create")
-    Call<Category> createCategory(@Path("cloudId") Integer cloudId, @Body Category category);
+    Call<Category> createCategory(@Path("cloudId") Long cloudId, @Body Category category);
 
     /**
      * @param cloudId  - cloud id
@@ -43,7 +43,7 @@ public interface CategoryService {
      * @return
      */
     @POST("{cloudId}/{categoryId}/update")
-    Call<Category> updateCategory(@Path("cloudId") Integer cloudId, @Path("categoryId") Long categoryId, @Body Category category);
+    Call<Category> updateCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId, @Body Category category);
 
     /**
      * @param cloudId    - cloud id
@@ -51,7 +51,7 @@ public interface CategoryService {
      * @return
      */
     @GET("{cloudId}/{categoryId}/delete")
-    Call<Category> deleteCategory(@Path("cloudId") Integer cloudId, @Path("categoryId") Long categoryId);
+    Call<Category> deleteCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId);
 
     /**
      * @param cloudId    - cloud id
@@ -59,7 +59,7 @@ public interface CategoryService {
      * @return
      */
     @GET("{cloudId}/{categoryId}")
-    Call<Category> getCategory(@Path("cloudId") Integer cloudId, @Path("categoryId") Long categoryId);
+    Call<Category> getCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId);
 
     /**
      * @param cloudId - cloud id
@@ -69,5 +69,5 @@ public interface CategoryService {
      * @return
      */
     @GET("{cloudId}")
-    Call<Collection<Category>> getCategories(@Path("cloudId") Integer cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
+    Call<Collection<Category>> getCategories(@Path("cloudId") Long cloudId, @Query("limit") int limit, @Query("offset") int offset, @Query("sort") String sort);
 }

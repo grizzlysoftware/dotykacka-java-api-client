@@ -20,7 +20,7 @@ public class Tag {
     @JsonProperty("canonicalname")
     public String canonicalName;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("customerforeignId")
     public Long customerId;
     @JsonProperty("deleted")

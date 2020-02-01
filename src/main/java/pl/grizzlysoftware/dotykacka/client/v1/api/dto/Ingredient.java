@@ -18,7 +18,7 @@ public class Ingredient {
     @JsonProperty("childExtId")
     private String childExtId;
     @JsonProperty("cloudid")
-    private Integer cloudId;
+    private Long cloudId;
     @JsonProperty("deleted")
     private Boolean isDeleted;
     @JsonProperty("ingUnit")

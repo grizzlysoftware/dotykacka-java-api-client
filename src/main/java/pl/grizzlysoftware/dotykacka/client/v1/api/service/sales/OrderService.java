@@ -19,7 +19,7 @@ public interface OrderService {
      * @return
      */
     @GET("{cloudId}/orderid/{orderId}")
-    Call<Order> getOrderById(@Path("cloudId") Integer cloudId, @Path("orderId") Long orderId);
+    Call<Order> getOrderById(@Path("cloudId") Long cloudId, @Path("orderId") Long orderId);
 
     /**
      * @param cloudId  - cloud id
@@ -28,7 +28,7 @@ public interface OrderService {
      * @return
      */
     @GET("{cloudId}/{branchId}/{orderId}")
-    Call<Order> getOrderById(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Path("orderId") Long orderId);
+    Call<Order> getOrderById(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Path("orderId") Long orderId);
 
     /**
      * @param cloudId   - cloud id
@@ -40,7 +40,7 @@ public interface OrderService {
      * @return
      */
     @GET("{cloudId}")
-    Call<Collection<Order>> getOrders(@Path("cloudId") Integer cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Order>> getOrders(@Path("cloudId") Long cloudId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 
     /**
      * @param cloudId   - cloud id
@@ -53,5 +53,5 @@ public interface OrderService {
      * @return
      */
     @GET("{cloudId}/{branchId}")
-    Call<Collection<Order>> getOrders(@Path("cloudId") Integer cloudId, @Path("branchId") Integer branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
+    Call<Collection<Order>> getOrders(@Path("cloudId") Long cloudId, @Path("branchId") Long branchId, @Query("dateRange") String dateRange, @Query("dateField") String dateField, @Query("limit") Integer limit, @Query("offset") Integer offset, @Query("sort") String sort);
 }

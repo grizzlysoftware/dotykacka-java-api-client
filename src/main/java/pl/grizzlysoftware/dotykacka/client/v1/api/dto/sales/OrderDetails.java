@@ -15,13 +15,13 @@ public class OrderDetails {
     @JsonProperty("pgKey")
     public Long pgKey;
     @JsonProperty("branchid")
-    public Integer branchId;
+    public Long branchId;
     @JsonProperty("canceleddate")
     public Long canceledDate;
     @JsonProperty("cashregistertype")
     public String cashRegisterType;
     @JsonProperty("cloudid")
-    public Integer cloudId;
+    public Long cloudId;
     @JsonProperty("completed")
     public Long completed;
     @JsonProperty("customerlongid")

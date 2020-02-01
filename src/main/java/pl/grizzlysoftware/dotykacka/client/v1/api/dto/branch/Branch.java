@@ -49,7 +49,7 @@ public class Branch {
     @JsonProperty("FEATURES_SET_SNADNO")
     private String featuresSetSnadno;
     @JsonProperty("branchid")
-    private Integer id;
+    private Long id;
     @JsonProperty("canonicalname")
     private String canonicalName;
     @JsonProperty("cbhash")
