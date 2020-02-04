@@ -19,6 +19,7 @@
 package pl.grizzlysoftware.util;
 
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -38,6 +39,7 @@ public final class RetrofitUtils {
             url += "/";
         }
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_USING_DEFAULT_VALUE);
         mapper.enable(MapperFeature.ALLOW_EXPLICIT_PROPERTY_RENAMING);
         return new Retrofit.Builder()

@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 
 /**
@@ -17,13 +16,13 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReceiptItem {
     @JsonProperty("billedunitprice")
-    public Integer billedUnitPrice;
+    public BigDecimal billedUnitPrice;
 
     @JsonProperty("branchid")
     public Long branchId;
 
     @JsonProperty("canceleddate")
-    public LocalDateTime canceledDate;
+    public ZonedDateTime cancelledAt;
 
     @JsonProperty("canonicalname")
     public String canonicalName;
@@ -35,13 +34,13 @@ public class ReceiptItem {
     public Long cloudId;
 
     @JsonProperty("completed")
-    public Long completed;
+    public ZonedDateTime completedAt;
 
     @JsonProperty("currency")
     public String currency;
 
     @JsonProperty("customerlongid")
-    public Long customerLongId;
+    public Long customerId;
 
     @JsonProperty("discountfixed")
     public BigDecimal discountFixed;

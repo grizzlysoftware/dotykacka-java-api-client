@@ -160,6 +160,8 @@ dependencies {
     compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: retrofitVersion
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: jacksonVersion
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: jacksonVersion
+
     compile group: 'org.apache.commons', name: 'commons-lang3', version: commonsLang3Version
     compile group: 'commons-codec', name: 'commons-codec', version: commonsCodecVersion
     compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
