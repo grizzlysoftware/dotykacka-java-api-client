@@ -22,7 +22,7 @@ public class ReceiptItem {
     public Long branchId;
 
     @JsonProperty("canceleddate")
-    public ZonedDateTime cancelledAt;
+    public Long cancelledAt;
 
     @JsonProperty("canonicalname")
     public String canonicalName;
@@ -34,7 +34,7 @@ public class ReceiptItem {
     public Long cloudId;
 
     @JsonProperty("completed")
-    public ZonedDateTime completedAt;
+    public Long completedAt;
 
     @JsonProperty("currency")
     public String currency;
@@ -97,7 +97,7 @@ public class ReceiptItem {
     public BigDecimal pricePurchaseWithoutVat;
 
     @JsonProperty("pricewithoutvat")
-    public BigDecimal pricewithoutvat;
+    public BigDecimal priceWithoutVat;
 
     @JsonProperty("productid")
     public Long productId;

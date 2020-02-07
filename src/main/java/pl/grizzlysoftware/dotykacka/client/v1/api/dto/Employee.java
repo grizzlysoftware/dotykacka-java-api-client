@@ -13,47 +13,47 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Employee {;
     @JsonProperty("id")
-    private Long id;
+    public Long id;
     @JsonProperty("accesslevel")
-    private Integer accessLevel;
+    public Integer accessLevel;
     @JsonProperty("accesslevels")
-    private List<String> accessLevels;
+    public List<String> accessLevels;
     @JsonProperty("accesspinshahash")
-    private String accesspinshahash;
+    public String accessPinShaHash;
     @JsonProperty("barcode")
-    private String barcode;
+    public String barcode;
     @JsonProperty("canonicalname")
-    private String canonicalname;
+    public String canonicalName;
     @JsonProperty("cloudid")
-    private Long cloudId;
+    public Long cloudId;
     @JsonProperty("deleted")
-    private Boolean isDeleted;
+    public Boolean isDeleted;
     @JsonProperty("email")
-    private String email;
+    public String email;
     @JsonProperty("enabled")
-    private Integer enabled;
+    public Boolean isEnabled;
     @JsonProperty("flags")
-    private Integer flags;
+    public Integer flags;
     @JsonProperty("hexcolor")
-    private String hexColor;
+    public String hexColor;
     @JsonProperty("modifiedby")
-    private String modifiedBy;
+    public String modifiedBy;
     @JsonProperty("name")
-    private String name;
+    public String name;
     @JsonProperty("numcanonicalname")
-    private String numCanonicalName;
+    public String numCanonicalName;
     @JsonProperty("pgKey")
-    private Long pgKey;
+    public Long pgKey;
     @JsonProperty("phone")
-    private String phone;
+    public String phone;
     @JsonProperty("requirepinalways")
-    private Integer requirePinAlways;
+    public Boolean requiresPinAlways;
     @JsonProperty("serialVersionUID")
-    private Long serialVersionUID;
+    public Long serialVersionUID;
     @JsonProperty("stockaccesslevel")
-    private Integer stockaccesslevel;
+    public Integer stockaccesslevel;
     @JsonProperty("stockAccessLevels")
-    private List<Object> stockAccessLevels;
+    public List<Object> stockAccessLevels;
     @JsonProperty("versiondate")
-    private Long versionDate;
+    public Long versionDate;
 }
