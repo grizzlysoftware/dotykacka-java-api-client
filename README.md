@@ -12,14 +12,14 @@ Compatible with Dotykacka api version 1.62
 <dependency>
     <groupId>pl.grizzlysoftware</groupId>
     <artifactId>dotykacka-java-api-client</artifactId>
-    <version>0.2.1</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```
-compile group: 'pl.grizzlysoftware', name: 'dotykacka-java-api-client', version: '0.2.1'
+compile group: 'pl.grizzlysoftware', name: 'dotykacka-java-api-client', version: '0.4.0'
 ```
 
 ## Dotykacka API coverage progress
