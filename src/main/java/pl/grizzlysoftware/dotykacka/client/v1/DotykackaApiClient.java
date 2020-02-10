@@ -45,6 +45,7 @@ public class DotykackaApiClient {
     public final EmployeeServiceFacade employeeService;
     public final CategoryServiceFacade categoryService;
     public final BranchServiceFacade branchService;
+    public final StockServiceFacade stockServiceFacade;
     public final WarehouseServiceFacade warehouseService;
     public final TagServiceFacade tagService;
     public final TableSeatServiceFacade tableSeatService;
@@ -89,5 +90,6 @@ public class DotykackaApiClient {
         tableSeatService = new TableSeatServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + TABLESEAT, TableSeatService.class));
         tagService = new TagServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + TAG, TagService.class));
         warehouseService = new WarehouseServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + WAREHOUSE, WarehouseService.class));
+        stockServiceFacade = new StockServiceFacade(configuration.cloudId, service(secureServiceHttpClient, configuration.url + STOCK, StockService.class));
     }
 }
