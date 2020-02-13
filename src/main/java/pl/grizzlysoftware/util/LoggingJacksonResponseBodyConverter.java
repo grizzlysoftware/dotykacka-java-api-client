@@ -27,7 +27,7 @@ public class LoggingJacksonResponseBodyConverter implements Converter<ResponseBo
         JavaType javaType = mapper.getTypeFactory().constructType(type);
         ObjectReader reader = mapper.readerFor(javaType);
         var str = value.string();
-        LOGGER.info("Converting: {} body: '{}'", javaType.getRawClass().getSimpleName(), str);
+        LOGGER.debug("Converting: {} body: '{}'", javaType.getRawClass().getSimpleName(), str);
         return reader.readValue(str);
     }
 }
