@@ -21,6 +21,6 @@ public class ProductStockupItem {
     public Double quantity;
     @JsonProperty("price")
     public Double netPurchasePrice;
-    @JsonProperty("items")
+    @JsonProperty("sellprice")
     public Double grossSellPrice;
 }
