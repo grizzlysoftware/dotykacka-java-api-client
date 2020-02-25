@@ -3,6 +3,10 @@ package pl.grizzlysoftware.dotykacka.client.v1.api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import pl.grizzlysoftware.util.NumericBooleanDeserializer;
+import pl.grizzlysoftware.util.NumericBooleanSerializer;
 
 import java.util.Collection;
 
@@ -20,7 +24,9 @@ public class ProductStockup {
     @JsonProperty("supplierid")
     public Long supplierId;
     @JsonProperty("updatenc")
-    public Integer updatenc;//dunno what is the hell is that
+    @JsonSerialize(using = NumericBooleanSerializer.class)
+    @JsonDeserialize(using = NumericBooleanDeserializer.class)
+    public boolean updateSellPrice;
     @JsonProperty("items")
     public Collection<ProductStockupItem> stockupItems;
 }
