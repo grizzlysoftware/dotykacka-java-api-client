@@ -3,6 +3,10 @@ package pl.grizzlysoftware.dotykacka.client.v1.api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import pl.grizzlysoftware.util.NumericBooleanDeserializer;
+import pl.grizzlysoftware.util.NumericBooleanSerializer;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
@@ -23,4 +27,8 @@ public class ProductStockupItem {
     public Double netPurchasePrice;
     @JsonProperty("items")
     public Double grossSellPrice;
+    @JsonProperty("updatenc")
+    @JsonSerialize(using = NumericBooleanSerializer.class)
+    @JsonDeserialize(using = NumericBooleanDeserializer.class)
+    public boolean updateSellPrice;
 }
