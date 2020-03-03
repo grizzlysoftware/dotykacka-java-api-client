@@ -11,73 +11,73 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Branch {
     @JsonProperty("CONFIG_APP_VERSION_CODE")
-    private String configAppVersionCode;
+    public String configAppVersionCode;
     @JsonProperty("CONFIG_APP_VERSION_NAME")
-    private String configAppVersionName;
+    public String configAppVersionName;
     @JsonProperty("CONFIG_CURRENCY")
-    private String configCurrency;
+    public String configCurrency;
     @JsonProperty("CONFIG_DECIMALS_DISPLAYED")
-    private String configDecimalsDisplayed;
+    public String configDecimalsDisplayed;
     @JsonProperty("CONFIG_DECIMALS_ROUND_ITEM")
-    private String configDecimalsRoundItem;
+    public String configDecimalsRoundItem;
     @JsonProperty("CONFIG_DECIMALS_ROUND_TOTAL")
-    private String configDecimalsRoundTotal;
+    public String configDecimalsRoundTotal;
     @JsonProperty("CONFIG_DEFAULT_WAREHOUSE_ID")
-    private String configDefaultWarehouseId;
+    public String configDefaultWarehouseId;
     @JsonProperty("CONFIG_DEVICE_CODE")
-    private String configDeviceCode;
+    public String configDeviceCode;
     @JsonProperty("CONFIG_INVOICE_SEPARATE_NUMBERS")
-    private String configInvoiceSeparateNumbers;
+    public String configInvoiceSeparateNumbers;
     @JsonProperty("CONFIG_INVOICE_SERIES_FORMAT")
-    private String configInvoiceSeriesFormat;
+    public String configInvoiceSeriesFormat;
     @JsonProperty("CONFIG_PRICES_NEGATIVE_ALLOWED")
-    private String configPricesNegativeAllowed;
+    public String configPricesNegativeAllowed;
     @JsonProperty("CONFIG_RECEIPT_SERIES_FORMAT")
-    private String configReceiptSeriesFormat;
+    public String configReceiptSeriesFormat;
     @JsonProperty("CONFIG_VAT_PAYER")
-    private String configVatPayer;
+    public String configVatPayer;
     @JsonProperty("CONFIG_VAT_RATES")
-    private String configVatRates;
+    public String configVatRates;
     @JsonProperty("FEATURES_ADD")
-    private String featuresAdd;
+    public String featuresAdd;
     @JsonProperty("FEATURES_SET_FREE")
-    private String featuresSetFree;
+    public String featuresSetFree;
     @JsonProperty("FEATURES_SET_NAPLNO")
-    private String featuresSetNaplno;
+    public String featuresSetNaplno;
     @JsonProperty("FEATURES_SET_NEOMEZENE")
-    private String featuresSetNeomezene;
+    public String featuresSetNeomezene;
     @JsonProperty("FEATURES_SET_SNADNO")
-    private String featuresSetSnadno;
+    public String featuresSetSnadno;
     @JsonProperty("branchid")
-    private Long id;
+    public Long id;
     @JsonProperty("canonicalname")
-    private String canonicalName;
+    public String canonicalName;
     @JsonProperty("cbhash")
-    private String cbHash;
+    public String cbHash;
     @JsonProperty("cloudid")
-    private Long cloudId;
+    public Long cloudId;
     @JsonProperty("config")
-    private String config;
+    public String config;
     @JsonProperty("created")
-    private Long created;
+    public Long created;
     @JsonProperty("deleted")
-    private Integer deleted;
+    public Integer deleted;
     @JsonProperty("display")
-    private Integer display;
+    public Integer display;
     @JsonProperty("features")
-    private Integer features;
+    public Integer features;
     @JsonProperty("flags")
-    private Integer flags;
+    public Integer flags;
     @JsonProperty("gcmid")
-    private String gcmId;
+    public String gcmId;
     @JsonProperty("name")
-    private String name;
+    public String name;
     @JsonProperty("numcanonicalname")
-    private String numCanonicalName;
+    public String numCanonicalName;
     @JsonProperty("pgKey")
-    private Long pgKey;
+    public Long pgKey;
     @JsonProperty("serialVersionUID")
-    private Long serialVersionUID;
+    public Long serialVersionUID;
     @JsonProperty("versiondate")
-    private Long versionDate;
+    public Long versionDate;
 }
