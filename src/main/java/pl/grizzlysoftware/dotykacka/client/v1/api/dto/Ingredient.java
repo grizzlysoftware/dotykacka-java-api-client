@@ -11,41 +11,41 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Ingredient {
     @JsonProperty("TOTAL_ROWS")
-    private Long totalRows;
+    public Long totalRows;
     @JsonProperty("belongstoproductId")
-    private Long belongstoproductId;
+    public Long belongstoproductId;
     @JsonProperty("childExtId")
-    private String childExtId;
+    public String childExtId;
     @JsonProperty("cloudid")
-    private Long cloudId;
+    public Long cloudId;
     @JsonProperty("deleted")
-    private Boolean isDeleted;
+    public Boolean isDeleted;
     @JsonProperty("ingUnit")
-    private String ingUnit;
+    public String ingUnit;
     @JsonProperty("ingrediencemapid")
-    private Long id;
+    public Long id;
     @JsonProperty("ingredienceproductId")
-    private Long productId;
+    public Long productId;
     @JsonProperty("origproductname")
-    private String origProductName;
+    public String origProductName;
     @JsonProperty("parentExtId")
-    private String parentExtId;
+    public String parentExtId;
     @JsonProperty("pgKey")
-    private Long pgKey;
+    public Long pgKey;
     @JsonProperty("productUnit")
-    private String productUnit;
+    public String productUnit;
     @JsonProperty("purchasepricewithoutvat2")
-    private Integer purchasePriceWithoutVat2;
+    public Integer purchasePriceWithoutVat2;
     @JsonProperty("quantity")
-    private Integer quantity;
+    public Integer quantity;
     @JsonProperty("serialVersionUID")
-    private Integer serialVersionUID;
+    public Integer serialVersionUID;
     @JsonProperty("totalsum")
-    private Integer totalSum;
+    public Integer totalSum;
     @JsonProperty("treeQuantity")
-    private Integer treeQuantity;
+    public Integer treeQuantity;
     @JsonProperty("units")
-    private String units;
+    public String units;
     @JsonProperty("versiondate")
-    private Long versionDate;
+    public Long versionDate;
 }
