@@ -136,7 +136,7 @@ class SalesServiceFacadeTest extends DotykackaSecureServiceSpecification {
             receiptItem != null
     }
 
-    def "gets receipt items"() {
+    def "gets receipt items #1"() {
         given:
             def day = LocalDateTime.of(2019, 12, 22, 00, 00, 00, 00)
         when:
@@ -145,11 +145,27 @@ class SalesServiceFacadeTest extends DotykackaSecureServiceSpecification {
             receiptItems != null
     }
 
-    def "gets receipt items for certain branch"() {
+    def "gets receipt items #2"() {
+        given:
+        when:
+            def receiptItems = facade.getReceiptItems(100, 0, "")
+        then:
+            receiptItems != null
+    }
+
+    def "gets receipt items for certain branch #1"() {
         given:
             def day = LocalDateTime.of(2019, 12, 22, 00, 00, 00, 00)
         when:
             def receiptItems = facade.getReceiptItems(BRANCH_ID, day, day, 100, 0, "")
+        then:
+            receiptItems != null
+    }
+
+    def "gets receipt items for certain branch #2"() {
+        given:
+        when:
+            def receiptItems = facade.getReceiptItems(BRANCH_ID, 100, 0, "")
         then:
             receiptItems != null
     }
