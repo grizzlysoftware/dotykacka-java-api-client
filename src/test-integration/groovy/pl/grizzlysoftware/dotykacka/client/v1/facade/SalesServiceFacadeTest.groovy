@@ -4,6 +4,7 @@ package pl.grizzlysoftware.dotykacka.client.v1.facade
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.sales.*
 import pl.grizzlysoftware.util.DotykackaSecureServiceSpecification
 
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.SALES
@@ -149,6 +150,15 @@ class SalesServiceFacadeTest extends DotykackaSecureServiceSpecification {
         given:
         when:
             def receiptItems = facade.getReceiptItems(100, 0, "")
+        then:
+            receiptItems != null
+    }
+
+    def "gets receipt items for certain branch #0"() {
+        given:
+            def day = LocalDate.of(2019, 12, 22)
+        when:
+            def receiptItems = facade.getReceiptItems(BRANCH_ID, day, day, 100, 0, "")
         then:
             receiptItems != null
     }

@@ -5,7 +5,9 @@ import pl.grizzlysoftware.dotykacka.client.v1.api.dto.sales.report.SalesReport;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.sales.*;
 import pl.grizzlysoftware.dotykacka.util.BatchLoader;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
@@ -162,7 +164,10 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         if (startDate == null || endDate == null) {
             dateRange = null;
         } else {
-            dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
+            dateRange = format(RECEIPTS_RANGE_PATTERN,
+                    startDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond(),
+                    endDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond()
+            );
         }
         var out = execute(receiptService.getReceiptItems(cloudId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;
@@ -178,11 +183,26 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
         if (startDate == null || endDate == null) {
             dateRange = null;
         } else {
+            dateRange = format(RECEIPTS_RANGE_PATTERN,
+                    startDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond(),
+                    endDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond()
+            );
+        }
+        var out = execute(receiptService.getReceiptItems(cloudId, branchId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
+        return out;
+    }
+
+    public Collection<ReceiptItem> getReceiptItems(Long branchId, LocalDate startDate, LocalDate endDate, Integer limit, Integer offset, String sort) {
+        String dateRange;
+        if (startDate == null || endDate == null) {
+            dateRange = null;
+        } else {
             dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
         }
         var out = execute(receiptService.getReceiptItems(cloudId, branchId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;
     }
+
 
     public Collection<ReceiptItem> getReceiptItems(LocalDateTime startDate, LocalDateTime endDate, String sort) {
         var out = batchLoader.load(page -> getReceiptItems(startDate, endDate, page.limit, page.offset, sort));
