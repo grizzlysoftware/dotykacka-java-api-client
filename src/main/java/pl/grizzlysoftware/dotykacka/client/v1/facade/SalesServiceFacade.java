@@ -160,15 +160,7 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
     }
 
     public Collection<ReceiptItem> getReceiptItems(LocalDateTime startDate, LocalDateTime endDate, Integer limit, Integer offset, String sort) {
-        String dateRange;
-        if (startDate == null || endDate == null) {
-            dateRange = null;
-        } else {
-            dateRange = format(RECEIPTS_RANGE_PATTERN,
-                    startDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond(),
-                    endDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond()
-            );
-        }
+        var dateRange = dateRangeMillis(startDate, endDate);
         var out = execute(receiptService.getReceiptItems(cloudId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;
     }
@@ -179,30 +171,16 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
     }
 
     public Collection<ReceiptItem> getReceiptItems(Long branchId, LocalDateTime startDate, LocalDateTime endDate, Integer limit, Integer offset, String sort) {
-        String dateRange;
-        if (startDate == null || endDate == null) {
-            dateRange = null;
-        } else {
-            dateRange = format(RECEIPTS_RANGE_PATTERN,
-                    startDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond(),
-                    endDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond()
-            );
-        }
+        var dateRange = dateRangeMillis(startDate, endDate);
         var out = execute(receiptService.getReceiptItems(cloudId, branchId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;
     }
 
     public Collection<ReceiptItem> getReceiptItems(Long branchId, LocalDate startDate, LocalDate endDate, Integer limit, Integer offset, String sort) {
-        String dateRange;
-        if (startDate == null || endDate == null) {
-            dateRange = null;
-        } else {
-            dateRange = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
-        }
+        var dateRange = dateRangePseudoISO(startDate, endDate);
         var out = execute(receiptService.getReceiptItems(cloudId, branchId, dateRange, ReceiptItemDateFields.COMPLETED.name, limit, offset, sort));
         return out;
     }
-
 
     public Collection<ReceiptItem> getReceiptItems(LocalDateTime startDate, LocalDateTime endDate, String sort) {
         var out = batchLoader.load(page -> getReceiptItems(startDate, endDate, page.limit, page.offset, sort));
@@ -211,6 +189,25 @@ public class SalesServiceFacade extends BasicDotykackaApiServiceFacade {
 
     public Collection<ReceiptItem> getReceiptItems(LocalDateTime startDate, LocalDateTime endDate) {
         var out = getReceiptItems(startDate, endDate, null);
+        return out;
+    }
+
+    private String dateRangePseudoISO(LocalDate startDate, LocalDate endDate) {
+        if (startDate == null || endDate == null) {
+            return null;
+        }
+        var out = format(RECEIPTS_RANGE_PATTERN, RECEIPTS_RANGE_DATE_FORMATTER.format(startDate), RECEIPTS_RANGE_DATE_FORMATTER.format(endDate));
+        return out;
+    }
+
+    private String dateRangeMillis(LocalDateTime startDate, LocalDateTime endDate) {
+        if (startDate == null || endDate == null) {
+            return null;
+        }
+        var out = format(RECEIPTS_RANGE_PATTERN,
+                startDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond() * 1000,
+                endDate.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond() * 1000
+        );
         return out;
     }
 }
