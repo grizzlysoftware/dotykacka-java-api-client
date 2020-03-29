@@ -28,6 +28,8 @@ import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider;
 import pl.grizzlysoftware.dotykacka.util.OAuthRequestInterceptor;
 import pl.grizzlysoftware.util.OkHttpLoggingInterceptor;
 
+import java.time.Duration;
+
 import static java.util.Objects.requireNonNull;
 import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.*;
 import static pl.grizzlysoftware.util.OkHttpClientUtils.builder;
@@ -58,6 +60,7 @@ public class DotykackaApiClient {
     public DotykackaApiClient(Configuration configuration) {
         this.configuration = requireNonNull(configuration).clone();
         var oAuthHttpClient = builder()
+                .callTimeout(configuration.requestTimeout != null ? configuration.requestTimeout : Duration.ofSeconds(60))
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build();
         oauthService = new OAuthServiceFacade(service(oAuthHttpClient, configuration.url + OAUTH, OAuthService.class));

@@ -18,6 +18,8 @@
 
 package pl.grizzlysoftware.dotykacka.model;
 
+import java.time.Duration;
+
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
@@ -26,6 +28,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 public class Configuration implements Cloneable {
     public String url;
     public Long cloudId;
+    public Duration requestTimeout;
     public Credentials accessTokenAuthCredentials;
     public Credentials apiTokenAuthCredentials;
     public String apiToken;
@@ -54,6 +57,7 @@ public class Configuration implements Cloneable {
         var out = new Configuration();
         out.url = url;
         out.cloudId = cloudId;
+        out.requestTimeout = requestTimeout;
         out.accessTokenAuthCredentials = accessTokenAuthCredentials.clone();
         out.apiTokenAuthCredentials = apiTokenAuthCredentials == null ? null : apiTokenAuthCredentials.clone();
         out.apiToken = apiToken;
