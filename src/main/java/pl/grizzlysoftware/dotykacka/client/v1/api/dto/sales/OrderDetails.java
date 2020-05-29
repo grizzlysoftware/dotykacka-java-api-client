@@ -51,9 +51,9 @@ public class OrderDetails {
     @JsonProperty("ordersummaryid")
     public Long orderSummaryId;
     @JsonProperty("paid")
-    public Integer paid;
+    public Boolean isPaid;
     @JsonProperty("parked")
-    public Integer parked;
+    public Boolean isParked;
     @JsonProperty("parklocation")
     public Object parkLocation;
     @JsonProperty("points")

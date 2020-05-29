@@ -49,7 +49,7 @@ public class ReceiptItem {
     public BigDecimal discountPercent;
 
     @JsonProperty("discountpermitted")
-    public Integer discountPermitted;
+    public Boolean isDiscountPermitted;
 
     @JsonProperty("ean")
     public String ean;
@@ -67,7 +67,7 @@ public class ReceiptItem {
     public String hexcolor;
 
     @JsonProperty("kitchenprinted")
-    public Integer kitchenPrinted;
+    public Boolean isKitchenPrinted;
 
     @JsonProperty("name")
     public String name;
@@ -76,7 +76,7 @@ public class ReceiptItem {
     public String note;
 
     @JsonProperty("onsale")
-    public Integer onSale;
+    public Boolean isOnSale;
 
     @JsonProperty("orderid")
     public Long orderId;
@@ -85,10 +85,10 @@ public class ReceiptItem {
     public Integer packaging;
 
     @JsonProperty("parked")
-    public Integer parked;
+    public Boolean isParked;
 
     @JsonProperty("points")
-    public Integer points;
+    public Double points;
 
     @JsonProperty("pricebilledwithoutvat")
     public BigDecimal priceBilledWithoutVat;

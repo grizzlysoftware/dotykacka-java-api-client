@@ -19,7 +19,7 @@ public class Customer {
     @JsonProperty("customerid")
     public Long customerId;
 
-    @JsonProperty("discountgroupId")
+    @JsonProperty("discountgroup_id")   //there's misspell in api documentation
     public Long discountGroupId;
 
     @JsonProperty("email")

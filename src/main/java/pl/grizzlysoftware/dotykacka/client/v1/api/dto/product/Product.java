@@ -18,9 +18,9 @@ public class Product {
     @JsonProperty("categoryid")
     public Long categoryId;
     @JsonProperty("categorymargin")
-    public String categorymargin;
+    public String categoryNargin;
     @JsonProperty("categoryname")
-    public String categoryname;
+    public String categoryName;
     @JsonProperty("cloudid")
     public Long cloudId;
     @JsonProperty("ctlgAmountId")
@@ -74,7 +74,7 @@ public class Product {
     @JsonProperty("noteslist")
     public String notesList;
     @JsonProperty("onsale")
-    public Integer isOnSale;
+    public Boolean isOnSale;
     @JsonProperty("packageitem")
     public Integer packageItem;
     @JsonProperty("packaging")
@@ -82,13 +82,13 @@ public class Product {
     @JsonProperty("packagingmeasurement")
     public Integer packagingMeasurement;
     @JsonProperty("permisions")
-    public Integer permisions;
+    public Integer permissions;
     @JsonProperty("pgKey")
     public Long pgKey;
     @JsonProperty("plu")
     public String plu;
     @JsonProperty("points")
-    public Integer points;
+    public Double points;
     @JsonProperty("priceVatCsv")
     public double priceVatCsv;
     @JsonProperty("pricewithoutvat")
@@ -108,7 +108,7 @@ public class Product {
     @JsonProperty("sortorder")
     public Integer sortOrder;
     @JsonProperty("special")
-    public Integer special;
+    public Boolean isSpecial;
     @JsonProperty("specialProductKey")
     public String specialProductKey;
     @JsonProperty("stockdeduct")
@@ -130,9 +130,9 @@ public class Product {
     @JsonProperty("tagslist")
     public String tagsList;
     @JsonProperty("takeawayitem")
-    public Integer isTakeAwayItem;
+    public Boolean isTakeAwayItem;
     @JsonProperty("timeable")
-    public Integer isTimeable;
+    public Boolean isTimeable;
     @JsonProperty("units")
     public String units;
     @JsonProperty("unitsmeasurement")

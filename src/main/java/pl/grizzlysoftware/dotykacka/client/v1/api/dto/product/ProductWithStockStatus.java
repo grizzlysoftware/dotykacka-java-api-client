@@ -18,9 +18,9 @@ public class ProductWithStockStatus {
     @JsonProperty("categoryid")
     public Long categoryId;
     @JsonProperty("categorymargin")
-    public String categorymargin;
+    public String categoryMargin;
     @JsonProperty("categoryname")
-    public String categoryname;
+    public String categoryName;
     @JsonProperty("cloudid")
     public Long cloudId;
     @JsonProperty("ctlgAmountId")
@@ -108,7 +108,7 @@ public class ProductWithStockStatus {
     @JsonProperty("sortorder")
     public Integer sortOrder;
     @JsonProperty("special")
-    public Integer special;
+    public Boolean isSpecial;
     @JsonProperty("specialProductKey")
     public String specialProductKey;
     @JsonProperty("stockdeduct")
@@ -130,9 +130,9 @@ public class ProductWithStockStatus {
     @JsonProperty("tagslist")
     public String tagsList;
     @JsonProperty("takeawayitem")
-    public Integer isTakeAwayItem;
+    public Boolean isTakeAwayItem;
     @JsonProperty("timeable")
-    public Integer isTimeable;
+    public Boolean isTimeable;
     @JsonProperty("units")
     public String units;
     @JsonProperty("unitsmeasurement")
