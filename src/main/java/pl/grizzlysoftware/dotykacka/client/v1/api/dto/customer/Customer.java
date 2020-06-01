@@ -22,6 +22,9 @@ public class Customer {
     @JsonProperty("discountgroup_id")   //there's misspell in api documentation
     public Long discountGroupId;
 
+    @JsonProperty("discountgroupId")   //there's misspell in api documentation
+    public Long discountGroupIdToSave;
+
     @JsonProperty("email")
     public String email;
 
