@@ -88,7 +88,7 @@ public class ProductWithStockStatus {
     @JsonProperty("plu")
     public String plu;
     @JsonProperty("points")
-    public Integer points;
+    public Double points;
     @JsonProperty("priceVatCsv")
     public double priceVatCsv;
     @JsonProperty("pricewithoutvat")
