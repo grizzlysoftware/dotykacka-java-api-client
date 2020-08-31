@@ -32,6 +32,7 @@ public class Configuration implements Cloneable {
     public Credentials accessTokenAuthCredentials;
     public Credentials apiTokenAuthCredentials;
     public String apiToken;
+    public long oAuthTokenValidationTolerance;
 
     public boolean isValid() {
         if (isEmpty(url)) {
@@ -61,6 +62,7 @@ public class Configuration implements Cloneable {
         out.accessTokenAuthCredentials = accessTokenAuthCredentials.clone();
         out.apiTokenAuthCredentials = apiTokenAuthCredentials == null ? null : apiTokenAuthCredentials.clone();
         out.apiToken = apiToken;
+        out.oAuthTokenValidationTolerance = oAuthTokenValidationTolerance;
         return out;
     }
 }

@@ -70,7 +70,7 @@ public class DotykackaApiClient {
         } else {
             apiTokenProvider = new ApiTokenProvider(oauthService, configuration.apiTokenAuthCredentials);
         }
-        accessTokenProvider = new AccessTokenProvider(oauthService, apiTokenProvider, configuration.accessTokenAuthCredentials, configuration.apiToken);
+        accessTokenProvider = new AccessTokenProvider(oauthService, apiTokenProvider, configuration.accessTokenAuthCredentials, configuration.apiToken, configuration.oAuthTokenValidationTolerance);
 
         var secureServiceHttpClient = builder()
                 .addInterceptor(new OAuthRequestInterceptor(accessTokenProvider))

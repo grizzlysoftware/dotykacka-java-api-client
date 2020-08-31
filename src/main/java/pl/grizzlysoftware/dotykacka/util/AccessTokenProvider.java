@@ -45,6 +45,14 @@ public class AccessTokenProvider implements TokenProvider<OAuthAccessToken> {
         this.validator = new OAuthAccessTokenValidator();
     }
 
+    public AccessTokenProvider(OAuthServiceFacade oauthService, ApiTokenProvider apiTokenProvider, Credentials credentials, String apiToken, Long oAuthAccessTokenValidationTolerance) {
+        this.oauthService = requireNonNull(oauthService);
+        this.apiTokenProvider = requireNonNull(apiTokenProvider);
+        this.apiTokenProvider.setApiToken(apiToken);
+        this.credentials = requireNonNull(credentials);
+        this.validator = new OAuthAccessTokenValidator(oAuthAccessTokenValidationTolerance);
+    }
+
     public AccessTokenProvider(OAuthServiceFacade oauthService, ApiTokenProvider apiTokenProvider, OAuthAccessTokenValidator validator, Credentials credentials, String apiToken) {
         this.oauthService = requireNonNull(oauthService);
         this.apiTokenProvider = requireNonNull(apiTokenProvider);
