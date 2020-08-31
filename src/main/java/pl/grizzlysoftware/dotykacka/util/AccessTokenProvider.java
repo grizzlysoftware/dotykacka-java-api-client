@@ -18,6 +18,8 @@
 
 package pl.grizzlysoftware.dotykacka.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken;
 import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade;
 import pl.grizzlysoftware.dotykacka.model.Credentials;
@@ -30,6 +32,7 @@ import static java.util.Objects.requireNonNull;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public class AccessTokenProvider implements TokenProvider<OAuthAccessToken> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccessTokenProvider.class);
 
     protected final OAuthServiceFacade oauthService;
     protected OAuthAccessToken accessToken;
@@ -66,6 +69,7 @@ public class AccessTokenProvider implements TokenProvider<OAuthAccessToken> {
         var apiToken = apiTokenProvider.acquireToken();
 
         if (accessToken == null || !validator.isValid(accessToken)) {
+            LOGGER.info("Access token invalid or expired, requesting new one");
             accessToken = oauthService.accessToken(credentials.username,
                     credentials.password, apiToken.token);
         }

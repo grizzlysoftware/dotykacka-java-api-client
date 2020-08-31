@@ -3,12 +3,12 @@ package pl.grizzlysoftware.util
 import okhttp3.OkHttpClient
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.OAuthService
-import pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath
 import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade
 import pl.grizzlysoftware.dotykacka.model.Credentials
 import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider
 import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider
-import pl.grizzlysoftware.dotykacka.util.OAuthRequestInterceptor
+import pl.grizzlysoftware.dotykacka.util.DotykackaOAuthAccessTokenExtractor
+import pl.grizzlysoftware.dotykacka.util.OkHttpAccessTokenAuthenticator
 import spock.lang.Specification
 
 import static pl.grizzlysoftware.dotykacka.client.v1.api.util.DotykackaServiceContextPath.OAUTH
@@ -34,8 +34,10 @@ abstract class DotykackaSecureServiceSpecification extends Specification {
     }
 
     OkHttpClient httpClient() {
+        def authenticator = new OkHttpAccessTokenAuthenticator(accessTokenProvider, new DotykackaOAuthAccessTokenExtractor());
         def httpClient = builder()
-                .addInterceptor(new OAuthRequestInterceptor(accessTokenProvider))
+                .addInterceptor(authenticator)
+                .authenticator(authenticator)
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build()
         return httpClient

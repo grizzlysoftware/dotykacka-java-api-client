@@ -25,7 +25,8 @@ import pl.grizzlysoftware.dotykacka.client.v1.facade.*;
 import pl.grizzlysoftware.dotykacka.model.Configuration;
 import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider;
 import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider;
-import pl.grizzlysoftware.dotykacka.util.OAuthRequestInterceptor;
+import pl.grizzlysoftware.dotykacka.util.DotykackaOAuthAccessTokenExtractor;
+import pl.grizzlysoftware.dotykacka.util.OkHttpAccessTokenAuthenticator;
 import pl.grizzlysoftware.util.OkHttpLoggingInterceptor;
 
 import java.time.Duration;
@@ -61,6 +62,7 @@ public class DotykackaApiClient {
         this.configuration = requireNonNull(configuration).clone();
         var oAuthHttpClient = builder()
                 .callTimeout(configuration.requestTimeout != null ? configuration.requestTimeout : Duration.ofSeconds(60))
+                .retryOnConnectionFailure(true)
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build();
         oauthService = new OAuthServiceFacade(service(oAuthHttpClient, configuration.url + OAUTH, OAuthService.class));
@@ -72,8 +74,10 @@ public class DotykackaApiClient {
         }
         accessTokenProvider = new AccessTokenProvider(oauthService, apiTokenProvider, configuration.accessTokenAuthCredentials, configuration.apiToken, configuration.oAuthTokenValidationTolerance);
 
+        var authenticator = new OkHttpAccessTokenAuthenticator(accessTokenProvider, new DotykackaOAuthAccessTokenExtractor());
         var secureServiceHttpClient = builder()
-                .addInterceptor(new OAuthRequestInterceptor(accessTokenProvider))
+                .addInterceptor(authenticator)
+                .authenticator(authenticator)
                 .addInterceptor(new OkHttpLoggingInterceptor())
                 .build();
 
