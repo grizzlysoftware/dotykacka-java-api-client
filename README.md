@@ -192,6 +192,22 @@ Dotykacka API V2 service coverage:
     * ~~Replace many product ingredients~~
     * ~~Update a single product ingredient~~
     * ~~Delete a single product ingredient~~
+* Reservation Service - not going to be supported atm - feel free to make pull request
+    * Get reservations
+    * Get reservation
+    * Create reservation
+    * Replace or create reservations
+    * Replace or create reservation
+    * Partial update of reservation
+    * Delete reservation 
+* Supplier Service
+    * ~~Get suppliers~~
+    * ~~Get supplier~~
+    * ~~Create supplier~~
+    * ~~Replace or create suppliers~~
+    * ~~Replace or create supplier~~
+    * ~~Partial update of supplier~~
+    * ~~Delete supplier~~ 
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
