@@ -165,9 +165,9 @@ Dotykacka API V2 service coverage:
 * Order Service
     * ~~Get orders~~
     * ~~Get order~~
-* Order Item Service - not going to be supported atm - feel free to make pull request
-    * Get order items
-    * Get order item
+* Order Item Service
+    * ~~Get order items~~
+    * ~~Get order item~~
 * Products Service
     * ~~Get products~~
     * ~~Get product~~
