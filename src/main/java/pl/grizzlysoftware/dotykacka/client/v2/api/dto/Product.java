@@ -1,146 +1,130 @@
-package pl.grizzlysoftware.dotykacka.client.v1.api.dto.product;
+package pl.grizzlysoftware.dotykacka.client.v2.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
+import java.util.Collection;
 
+/**
+ * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ * <p>
+ * https://docs.api.dotypos.com/entity/product
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Product {
-    @JsonProperty("productid")
+    @JsonProperty("id")
     public Long id;
-    @JsonProperty("canonicalname")
-    public String canonicalName;
-    @JsonProperty("numcanonicalname")
-    public String numCanonicalName;
-    @JsonProperty("categoryid")
-    public Long categoryId;
-    @JsonProperty("categorymargin")
-    public String categoryNargin;
-    @JsonProperty("categoryname")
-    public String categoryName;
-    @JsonProperty("cloudid")
+
+    @JsonProperty("_cloudId")
     public Long cloudId;
-    @JsonProperty("ctlgAmountId")
-    public Long ctlgAmountId;
-    @JsonProperty("ctlgBindType")
-    public Integer ctlgBindType;
-    @JsonProperty("ctlgItemId")
-    public Long ctlgItemId;
-    @JsonProperty("currency")
-    public String currency;
-    @JsonProperty("deleted")
-    public Boolean isDeleted;
-    @JsonProperty("description")
-    public String description;
-    @JsonProperty("discountpercent")
-    public Float discountPercent;
-    @JsonProperty("discountpermitted")
-    public Boolean isDiscountPermitted;
-    @JsonProperty("display")
-    public Boolean isDisplayed;
-    @JsonProperty("dnids")
-    public String dnIds;
-    @JsonProperty("ean")
-    public String ean;
-    @JsonProperty("eetsubjectid")
+
+    @JsonProperty("_categoryId")
+    public Long categoryId;
+
+    @JsonProperty("_defaultCourseId")
+    public Long defaultCourseId;
+
+    @JsonProperty("_eetSubjectId")
     public Long eetSubjectId;
-    @JsonProperty("externalid")
+
+    @JsonProperty("externalId")
     public String externalId;
-    @JsonProperty("fiscalizationdisabled")
-    public Boolean isFiscalizationDisabled;
-    @JsonProperty("hexcolor")
-    public String hexColor;
-    @JsonProperty("ingredients")
-    public Integer ingredients;
-    @JsonProperty("jointsale")
-    public Boolean isJointSale;
-    @JsonProperty("lastInventory")
-    public Boolean lastInventory;
-    @JsonProperty("lastInventoryValue")
-    public Integer lastInventoryValue;
-    @JsonProperty("lastpurchasepricewithoutvat")
-    public double lastPurchaseNetPrice;
-    @JsonProperty("margin")
-    public String margin;
-    @JsonProperty("marginmin")
-    public Integer marginMin;
-    @JsonProperty("modifiedby")
-    public String modifiedBy;
+
     @JsonProperty("name")
     public String name;
-    @JsonProperty("noteslist")
-    public String notesList;
-    @JsonProperty("onsale")
-    public Boolean isOnSale;
-    @JsonProperty("packageitem")
-    public Integer packageItem;
-    @JsonProperty("packaging")
-    public Integer packaging;
-    @JsonProperty("packagingmeasurement")
-    public Integer packagingMeasurement;
-    @JsonProperty("permisions")
-    public Integer permissions;
-    @JsonProperty("pgKey")
-    public Long pgKey;
-    @JsonProperty("plu")
-    public String plu;
-    @JsonProperty("points")
-    public Double points;
-    @JsonProperty("priceVatCsv")
-    public double priceVatCsv;
-    @JsonProperty("pricewithoutvat")
-    public double netPrice;
-    @JsonProperty("pricewithvat")
-    public double grossPrice;
-    @JsonProperty("profitwithoutvat")
-    public double netProfit;
-    @JsonProperty("purchasepricewithoutvat")
-    public double purchaseNetPrice;
-    @JsonProperty("purchasepricewithoutvat2")
-    public double purchaseNetPrice2;
-    @JsonProperty("requirespriceentry")
-    public Integer requirePriceEntry;
-    @JsonProperty("requiresquantityentry")
-    public Integer requireQuantityEntry;
-    @JsonProperty("sortorder")
-    public Integer sortOrder;
-    @JsonProperty("special")
-    public Boolean isSpecial;
-    @JsonProperty("specialProductKey")
-    public String specialProductKey;
-    @JsonProperty("stockdeduct")
-    public Integer stockDeduct;
-    @JsonProperty("stockoverdraft")
-    public String stockOverDraft;
-    @JsonProperty("stockquantity")
-    public int stockQuantity;
-    @JsonProperty("stockquantitystatus")
-    public int stockQuantityStatus;
-    @JsonProperty("stockupQuantitySum")
-    public int stockupQuantitySum;
+
+    @JsonProperty("description")
+    public String description;
+
     @JsonProperty("subtitle")
     public String subtitle;
-    @JsonProperty("supplierId")
-    public Long supplierId;
-    @JsonProperty("supplierproductcode")
-    public String supplierProductCode;
-    @JsonProperty("tagslist")
-    public String tagsList;
-    @JsonProperty("takeawayitem")
-    public Boolean isTakeAwayItem;
-    @JsonProperty("timeable")
-    public Boolean isTimeable;
-    @JsonProperty("units")
-    public String units;
-    @JsonProperty("unitsmeasurement")
-    public String unitsMeasurement;
+
     @JsonProperty("vat")
-    public double vat;
-    @JsonProperty("warehouses")
-    public List<Object> warehouses;
-    @JsonProperty("writeoffQuatitySum")
-    public Integer writeoffQuatitySum;
+    public Double vat;
+
+    @JsonProperty("priceWithoutVat")
+    public Double netPrice;
+
+    @JsonProperty("priceWithVat")
+    public Double grossPrice;
+
+    @JsonProperty("purchasePriceWithoutVat")
+    public Double purchaseNetPrice;
+
+    @JsonProperty("currency")
+    public String currency;
+
+    @JsonProperty("margin")
+    public String margin;
+
+    @JsonProperty("marginMin")
+    public Double marginMin;
+
+    @JsonProperty("plu")
+    public String plu;
+
+    @JsonProperty("ean")
+    public Collection<String> eans;
+
+    @JsonProperty("points")
+    public Double points;
+
+    @JsonProperty("unit")
+    public String unit;
+
+    @JsonProperty("unitMeasurement")
+    public String unitMeasurement;
+
+    @JsonProperty("sortOrder")
+    public Long sortOrder;
+
+    @JsonProperty("supplierProductCode")
+    public String supplierProductCode;
+
+    @JsonProperty("stockOverdraft")
+    public String stockOverdraft;
+
+    @JsonProperty("packageItem")
+    public Double packageItem;
+
+    @JsonProperty("packaging")
+    public Double packaging;
+
+    @JsonProperty("packagingMeasurement")
+    public Double packagingMeasurement;
+
+    @JsonProperty("notes")
+    public Collection<String> notes;
+
+    @JsonProperty("discountPercent")
+    public Double discountPercent;
+
+    @JsonProperty("discountPermitted")
+    public Boolean isDiscountPermitted;
+
+    @JsonProperty("deleted")
+    public Boolean isDeleted;
+
+    @JsonProperty("requiresPriceEntry")
+    public Boolean isPriceEntryRequired;
+
+    @JsonProperty("onSale")
+    public Boolean isOnSale;
+
+    @JsonProperty("display")
+    public Boolean isDisplayed;
+
+    @JsonProperty("onSale")
+    public Boolean isDeductedFromStock;
+
+    @JsonProperty("created")
+    public Long createdAt;
+
+    @JsonProperty("versionDate")
+    public Long updatedAt;
+
+    @JsonProperty("modifiedBy")
+    public String updatedBy;
 }

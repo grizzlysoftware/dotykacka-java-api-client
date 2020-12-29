@@ -135,14 +135,14 @@ Dotykacka API V2 service coverage:
 * Customers Service
     * ~~Get customers~~
     * ~~Get customer~~
-    * ~~Create new customery~
+    * ~~Create new customers~~
     * ~~Replace a single customer~~
     * ~~Replace many customers~~
     * ~~Update a single customer~~
     * ~~Delete a single customer~~
-* Delivery Service - not going to be supported
+* Delivery Service - not going to be supported atm - feel free to make pull request
     * Upload delivery note 
-* EET-subject Service - not going to be supported
+* EET-subject Service - not going to be supported atm - feel free to make pull request
     * Get EET subjects
     * Get EET subject
     * Create EET subject
@@ -162,6 +162,20 @@ Dotykacka API V2 service coverage:
 * MoneyLog Service
     * ~~Get money logs~~
     * ~~Get money log~~
+* Order Service - not going to be supported atm - feel free to make pull request
+    * Get orders
+    * Get order
+* Order Item Service - not going to be supported atm - feel free to make pull request
+    * Get order items
+    * Get order item
+* Products Service
+    * ~~Get products~~
+    * ~~Get product~~
+    * ~~Create new products~~
+    * ~~Replace a single product~~
+    * ~~Replace many products~~
+    * ~~Update a single product~~
+    * ~~Delete a single product~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
