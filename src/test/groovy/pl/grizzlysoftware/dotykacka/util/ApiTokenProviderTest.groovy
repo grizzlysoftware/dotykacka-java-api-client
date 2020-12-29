@@ -18,8 +18,8 @@
 
 package pl.grizzlysoftware.dotykacka.util
 
-import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthApiToken
-import pl.grizzlysoftware.dotykacka.client.v1.facade.OAuthServiceFacade
+import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthApiToken
+import pl.grizzlysoftware.dotykacka.client.v2.facade.OAuthServiceFacade
 import pl.grizzlysoftware.dotykacka.client.v2.util.ApiTokenProvider
 import pl.grizzlysoftware.dotykacka.model.Credentials
 import spock.lang.Specification
