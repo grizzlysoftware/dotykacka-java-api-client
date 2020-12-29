@@ -118,14 +118,22 @@ Dotykacka API service coverage:
 
 
 Dotykacka API V2 service coverage:
+* Category Service
+    * ~~Get categories~~
+    * ~~Get category~~
+    * ~~Create new category~~
+    * ~~Replace a single category~~
+    * ~~Replace many categories~~
+    * ~~Update a single category~~
+    * ~~Delete a single category~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
     * ~~Products on warehouse~~
     * ~~Product on warehouse~~
     * ~~Create new warehouse~~
-    * Replace a single warehouse
-    * Replace many warehouses
+    * ~~Replace a single warehouse~~
+    * ~~Replace many warehouses~~
     * ~~Update a single warehouse~~
     * ~~Delete a single warehouse~~
     * ~~Stockup to warehouse~~
