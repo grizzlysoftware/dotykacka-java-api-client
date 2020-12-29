@@ -209,8 +209,12 @@ Dotykacka API V2 service coverage:
     * ~~Partial update of supplier~~
     * ~~Delete supplier~~ 
 * Table Service
-    * ~~Get tablees~~
+    * ~~Get tables~~
     * ~~Get table~~
+* Tag Service
+    * ~~Get tags~~
+    * ~~Get tag~~
+    * ~~Create tags~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
