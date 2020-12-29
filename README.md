@@ -118,6 +118,9 @@ Dotykacka API service coverage:
 
 
 Dotykacka API V2 service coverage:
+* Branch Service
+    * ~~Get branches~~
+    * ~~Get branch~~
 * Category Service
     * ~~Get categories~~
     * ~~Get category~~

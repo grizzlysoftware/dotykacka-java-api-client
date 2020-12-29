@@ -31,6 +31,7 @@ public interface CategoryService {
 
     /**
      * Gets categories for given cloud
+     *
      * https://docs.api.dotypos.com/entity/category#get-categories
      *
      * @param cloudId - id of the cloud
