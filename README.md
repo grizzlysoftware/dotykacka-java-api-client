@@ -176,6 +176,14 @@ Dotykacka API V2 service coverage:
     * ~~Replace many products~~
     * ~~Update a single product~~
     * ~~Delete a single product~~
+* Product Customization Service
+    * ~~Get product customizations~~
+    * ~~Get product customization~~
+    * ~~Create new product customization~~
+    * ~~Replace a single product customization~~
+    * ~~Replace many product customizations~~
+    * ~~Update a single product customization~~
+    * ~~Delete a single product customization~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
