@@ -140,6 +140,25 @@ Dotykacka API V2 service coverage:
     * ~~Replace many customers~~
     * ~~Update a single customer~~
     * ~~Delete a single customer~~
+* Delivery Service - not going to be supported
+    * Upload delivery note 
+* EET-subject Service - not going to be supported
+    * Get EET subjects
+    * Get EET subject
+    * Create EET subject
+    * Replace or create EET subjects
+    * Replace or create EET subject
+    * Partial update EET subject
+    * Delete EET subject
+* Employee Service
+    * ~~Get employees~~
+    * ~~Get employee~~
+    * ~~Create employee~~
+    * ~~Replace or create employees~~
+    * ~~Replace or create employee~~
+    * ~~Partial update of employee~~
+    * ~~Delete employee~~
+    * Set employee access pin
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
