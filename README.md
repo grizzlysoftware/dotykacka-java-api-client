@@ -228,7 +228,13 @@ Dotykacka API V2 service coverage:
     * ~~Stockup to warehouse~~
     * Transfer to warehouse
     * Sale product on warehohouse
-    
+* Warehouse Branch Service
+    * ~~Get warehouse branches~~
+    * ~~Get warehouse branche~~
+    * ~~Create new warehouse branch~~
+    * ~~Replace a single warehouse branch~~
+    * ~~Replace many warehouses branches~~
+    * ~~Update a single warehouse branch~~
     
 ## Running unit tests
 ```
