@@ -22,7 +22,7 @@ public interface WarehouseService {
      *
      * @param cloudId     - id of the cloud
      * @param warehouseId - id of the warehouse to be returned
-     * @return
+     * @return warehouse
      */
     @GET("v2/clouds/{cloudId}/warehouses/{warehouseId}")
     Call<Warehouse> findWarehouseById(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId);
@@ -37,7 +37,7 @@ public interface WarehouseService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return warehouses
      */
     @GET("v2/clouds/{cloudId}/warehouses")
     Call<Collection<Warehouse>> findWarehouses(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -50,7 +50,7 @@ public interface WarehouseService {
      *
      * @param cloudId   - cloud id
      * @param warehouse - warehouse to be created
-     * @return
+     * @return warehouse
      */
     @POST("v2/clouds/{cloudId}/warehouses")
     Call<Warehouse> createWarehouse(@Path("cloudId") Long cloudId, @Body Warehouse warehouse);
@@ -62,7 +62,7 @@ public interface WarehouseService {
      *
      * @param cloudId     - cloud id
      * @param warehouse   - warehouse to be replaced
-     * @return
+     * @return warehouse
      */
     @PUT("v2/clouds/{cloudId}/warehouses")
     Call<Warehouse> replaceWarehouse(@Path("cloudId") Long cloudId, @Body Warehouse warehouse);
@@ -74,7 +74,7 @@ public interface WarehouseService {
      *
      * @param cloudId     - cloud id
      * @param warehouses   - warehouses to be replaced
-     * @return
+     * @return warehouse
      */
     @PUT("v2/clouds/{cloudId}/warehouses")
     Call<Collection<Warehouse>> replaceWarehouses(@Path("cloudId") Long cloudId, @Body Collection<Warehouse> warehouses);
@@ -87,7 +87,7 @@ public interface WarehouseService {
      * @param cloudId     - cloud id
      * @param warehouseId - warehouse id to be updated
      * @param warehouse   - warehouse to be updated
-     * @return
+     * @return warehouse
      */
     @PATCH("v2/clouds/{cloudId}/warehouses/{warehouseId}")
     Call<Warehouse> updateWarehouse(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId, @Body Warehouse warehouse);
@@ -99,7 +99,7 @@ public interface WarehouseService {
      *
      * @param cloudId     - cloud id
      * @param warehouseId - warehouse id to be deleted
-     * @return
+     * @return warehouse
      */
     @DELETE("v2/clouds/{cloudId}/warehouses/{warehouseId}")
     Call<Warehouse> deleteWarehouse(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId);
@@ -112,7 +112,7 @@ public interface WarehouseService {
      * @param cloudId     - id of the cloud
      * @param warehouseId - id of the warehouse to which products should be stocked up
      * @param stockup     - stockup information
-     * @return
+     * @return warehouse
      */
     @POST("v2/clouds/{cloudId}/warehouses/{warehouseId}/stockups")
     Call<Void> stockupProducts(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId, @Body ProductStockup stockup);
@@ -124,7 +124,7 @@ public interface WarehouseService {
      *
      * @param cloudId     - id of the cloud
      * @param warehouseId - id of the warehouse to be searched
-     * @return
+     * @return warehouse
      */
     @GET("v2/clouds/{cloudId}/warehouses/{warehouseId}/products")
     Call<Collection<ProductStockInfo>> findWarehouseProductStockInfos(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId);
@@ -137,7 +137,7 @@ public interface WarehouseService {
      * @param cloudId     - id of the cloud
      * @param warehouseId - id of the warehouse to be searched
      * @param productId   - id of the product
-     * @return
+     * @return warehouse
      */
     @GET("v2/clouds/{cloudId}/warehouses/{warehouseId}/products/{productId}")
     Call<Collection<ProductStockInfo>> findWarehouseProductStockInfoByProductId(@Path("cloudId") Long cloudId, @Path("warehouseId") Long warehouseId,

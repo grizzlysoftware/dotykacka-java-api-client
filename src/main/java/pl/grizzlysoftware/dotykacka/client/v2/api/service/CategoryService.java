@@ -41,7 +41,7 @@ public interface CategoryService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return categories
      */
     @GET("v2/clouds/{cloudId}/categories")
     Call<Collection<Category>> findCategories(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -54,11 +54,10 @@ public interface CategoryService {
      *
      * @param cloudId    - cloud id
      * @param categoryId - categoryId id
-     * @return
+     * @return category
      */
     @GET("v2/clouds/{cloudId}/categories/{categoryId}")
     Call<Category> findCategoryById(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId);
-
 
     /**
      * Creates categories for given cloud
@@ -67,7 +66,7 @@ public interface CategoryService {
      *
      * @param cloudId    - cloud id
      * @param categories - categories to be created, max 100 categories
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/categories")
     Call<Void> createCategory(@Path("cloudId") Long cloudId, @Body Collection<Category> categories);
@@ -79,7 +78,7 @@ public interface CategoryService {
      *
      * @param cloudId    - cloud id
      * @param categories - categories to be replaced, max 100 categories
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/categories")
     Call<Void> replaceCategories(@Path("cloudId") Long cloudId, @Body Collection<Category> categories);
@@ -92,7 +91,7 @@ public interface CategoryService {
      * @param cloudId    - cloud id
      * @param categoryId - id of the category to be replaced
      * @param category   - category to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/categories/{categoryId}")
     Call<Void> replaceCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId, @Body Category category);
@@ -105,7 +104,7 @@ public interface CategoryService {
      * @param cloudId    - cloud id
      * @param categoryId - id of the category to be updated
      * @param category   - category to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/categories/{categoryId}")
     Call<Void> updateCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId, @Body Category category);
@@ -113,7 +112,7 @@ public interface CategoryService {
     /**
      * @param cloudId    - cloud id
      * @param categoryId - category id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/categories/{categoryId}")
     Call<Void> deleteCategory(@Path("cloudId") Long cloudId, @Path("categoryId") Long categoryId);

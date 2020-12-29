@@ -41,20 +41,20 @@ public interface ProductIngredientService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return product ingredients
      */
     @GET("v2/clouds/{cloudId}/product-ingredients")
     Call<Collection<ProductIngredient>> findProductIngredients(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                                               @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets productIngredient by id for given cloud
      * <p>
      * https://docs.api.dotypos.com/entity/product-ingredient#get-product-ingredient
      *
-     * @param cloudId    - cloud id
+     * @param cloudId             - cloud id
      * @param productIngredientId - productIngredientId id
-     * @return
+     * @return product ingredient
      */
     @GET("v2/clouds/{cloudId}/product-ingredients/{productIngredientId}")
     Call<ProductIngredient> findProductIngredientById(@Path("cloudId") Long cloudId, @Path("productIngredientId") Long productIngredientId);
@@ -65,9 +65,9 @@ public interface ProductIngredientService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-ingredient#create-new-product-ingredients
      *
-     * @param cloudId   - cloud id
+     * @param cloudId            - cloud id
      * @param productIngredients - productIngredients to be created, max 100 productIngredients
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/product-ingredients")
     Call<Void> createProductIngredient(@Path("cloudId") Long cloudId, @Body Collection<ProductIngredient> productIngredients);
@@ -77,9 +77,9 @@ public interface ProductIngredientService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-ingredient#replace-or-create-product-ingredients
      *
-     * @param cloudId   - cloud id
+     * @param cloudId            - cloud id
      * @param productIngredients - productIngredients to be replaced, max 100 productIngredients
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/product-ingredients")
     Call<Void> replaceProductIngredients(@Path("cloudId") Long cloudId, @Body Collection<ProductIngredient> productIngredients);
@@ -89,10 +89,10 @@ public interface ProductIngredientService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-ingredient#replace-or-create-product-ingredients
      *
-     * @param cloudId    - cloud id
+     * @param cloudId             - cloud id
      * @param productIngredientId - id of the productIngredient to be replaced
      * @param productIngredient   - productIngredient to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/product-ingredients/{productIngredientId}")
     Call<Void> replaceProductIngredient(@Path("cloudId") Long cloudId, @Path("productIngredientId") Long productIngredientId, @Body ProductIngredient productIngredient);
@@ -102,18 +102,18 @@ public interface ProductIngredientService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-ingredient#partial-update-of-product-ingredient
      *
-     * @param cloudId    - cloud id
+     * @param cloudId             - cloud id
      * @param productIngredientId - id of the productIngredient to be updated
      * @param productIngredient   - productIngredient to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/product-ingredients/{productIngredientId}")
     Call<Void> updateProductIngredient(@Path("cloudId") Long cloudId, @Path("productIngredientId") Long productIngredientId, @Body ProductIngredient productIngredient);
 
     /**
-     * @param cloudId    - cloud id
+     * @param cloudId             - cloud id
      * @param productIngredientId - productIngredient id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/product-ingredients/{productIngredientId}")
     Call<Void> deleteProductIngredient(@Path("cloudId") Long cloudId, @Path("productIngredientId") Long productIngredientId);

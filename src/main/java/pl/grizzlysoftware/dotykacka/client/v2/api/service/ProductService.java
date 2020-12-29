@@ -41,20 +41,20 @@ public interface ProductService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return products
      */
     @GET("v2/clouds/{cloudId}/products")
     Call<Collection<Product>> findProducts(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                           @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets product by id for given cloud
      * <p>
      * https://docs.api.dotypos.com/entity/product#get-product
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param productId - productId id
-     * @return
+     * @return product
      */
     @GET("v2/clouds/{cloudId}/products/{productId}")
     Call<Product> findProductById(@Path("cloudId") Long cloudId, @Path("productId") Long productId);
@@ -65,9 +65,9 @@ public interface ProductService {
      * <p>
      * https://docs.api.dotypos.com/entity/product#create-product
      *
-     * @param cloudId   - cloud id
+     * @param cloudId  - cloud id
      * @param products - products to be created, max 100 products
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/products")
     Call<Void> createProduct(@Path("cloudId") Long cloudId, @Body Collection<Product> products);
@@ -77,9 +77,9 @@ public interface ProductService {
      * <p>
      * https://docs.api.dotypos.com/entity/product#replace-or-create-products
      *
-     * @param cloudId   - cloud id
+     * @param cloudId  - cloud id
      * @param products - products to be replaced, max 100 products
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/products")
     Call<Void> replaceProducts(@Path("cloudId") Long cloudId, @Body Collection<Product> products);
@@ -89,10 +89,10 @@ public interface ProductService {
      * <p>
      * https://docs.api.dotypos.com/entity/product#replace-or-create-product
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param productId - id of the product to be replaced
      * @param product   - product to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/products/{productId}")
     Call<Void> replaceProduct(@Path("cloudId") Long cloudId, @Path("productId") Long productId, @Body Product product);
@@ -102,18 +102,18 @@ public interface ProductService {
      * <p>
      * https://docs.api.dotypos.com/entity/product#partial-update-of-product
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param productId - id of the product to be updated
      * @param product   - product to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/products/{productId}")
     Call<Void> updateProduct(@Path("cloudId") Long cloudId, @Path("productId") Long productId, @Body Product product);
 
     /**
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param productId - product id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/products/{productId}")
     Call<Void> deleteProduct(@Path("cloudId") Long cloudId, @Path("productId") Long productId);

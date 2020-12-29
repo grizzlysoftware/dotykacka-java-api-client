@@ -41,7 +41,7 @@ public interface SupplierService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return suppliers
      */
     @GET("v2/clouds/{cloudId}/suppliers")
     Call<Collection<Supplier>> findSuppliers(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -54,7 +54,7 @@ public interface SupplierService {
      *
      * @param cloudId    - cloud id
      * @param supplierId - supplierId id
-     * @return
+     * @return supplier
      */
     @GET("v2/clouds/{cloudId}/suppliers/{supplierId}")
     Call<Supplier> findSupplierById(@Path("cloudId") Long cloudId, @Path("supplierId") Long supplierId);
@@ -67,7 +67,7 @@ public interface SupplierService {
      *
      * @param cloudId   - cloud id
      * @param suppliers - suppliers to be created, max 100 suppliers
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/suppliers")
     Call<Void> createSupplier(@Path("cloudId") Long cloudId, @Body Collection<Supplier> suppliers);
@@ -79,7 +79,7 @@ public interface SupplierService {
      *
      * @param cloudId   - cloud id
      * @param suppliers - suppliers to be replaced, max 100 suppliers
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/suppliers")
     Call<Void> replaceSuppliers(@Path("cloudId") Long cloudId, @Body Collection<Supplier> suppliers);
@@ -92,7 +92,7 @@ public interface SupplierService {
      * @param cloudId    - cloud id
      * @param supplierId - id of the supplier to be replaced
      * @param supplier   - supplier to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/suppliers/{supplierId}")
     Call<Void> replaceSupplier(@Path("cloudId") Long cloudId, @Path("supplierId") Long supplierId, @Body Supplier supplier);
@@ -105,7 +105,7 @@ public interface SupplierService {
      * @param cloudId    - cloud id
      * @param supplierId - id of the supplier to be updated
      * @param supplier   - supplier to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/suppliers/{supplierId}")
     Call<Void> updateSupplier(@Path("cloudId") Long cloudId, @Path("supplierId") Long supplierId, @Body Supplier supplier);
@@ -113,7 +113,7 @@ public interface SupplierService {
     /**
      * @param cloudId    - cloud id
      * @param supplierId - supplier id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/suppliers/{supplierId}")
     Call<Void> deleteSupplier(@Path("cloudId") Long cloudId, @Path("supplierId") Long supplierId);

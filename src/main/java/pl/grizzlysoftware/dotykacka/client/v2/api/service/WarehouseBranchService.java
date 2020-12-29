@@ -41,7 +41,7 @@ public interface WarehouseBranchService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return warehouse branches
      */
     @GET("v2/clouds/{cloudId}/warehouse-branches")
     Call<Collection<WarehouseBranch>> findWarehouseBranches(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -54,7 +54,7 @@ public interface WarehouseBranchService {
      *
      * @param cloudId           - cloud id
      * @param warehouseBranchId - warehouseBranchId id
-     * @return
+     * @return warehouse branch
      */
     @GET("v2/clouds/{cloudId}/warehouse-branches/{warehouseBranchId}")
     Call<WarehouseBranch> findWarehouseBranchById(@Path("cloudId") Long cloudId, @Path("warehouseBranchId") Long warehouseBranchId);
@@ -67,7 +67,7 @@ public interface WarehouseBranchService {
      *
      * @param cloudId           - cloud id
      * @param warehouseBranches - warehouseBranches to be created, max 100 warehouseBranches
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/warehouse-branches")
     Call<Void> createWarehouseBranch(@Path("cloudId") Long cloudId, @Body Collection<WarehouseBranch> warehouseBranches);
@@ -79,7 +79,7 @@ public interface WarehouseBranchService {
      *
      * @param cloudId           - cloud id
      * @param warehouseBranches - warehouseBranches to be replaced, max 100 warehouseBranches
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/warehouse-branches")
     Call<Void> replaceWarehouseBranches(@Path("cloudId") Long cloudId, @Body Collection<WarehouseBranch> warehouseBranches);
@@ -92,7 +92,7 @@ public interface WarehouseBranchService {
      * @param cloudId           - cloud id
      * @param warehouseBranchId - id of the warehouseBranch to be replaced
      * @param warehouseBranch   - warehouseBranch to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/warehouse-branches/{warehouseBranchId}")
     Call<Void> replaceWarehouseBranch(@Path("cloudId") Long cloudId, @Path("warehouseBranchId") Long warehouseBranchId, @Body WarehouseBranch warehouseBranch);
@@ -105,7 +105,7 @@ public interface WarehouseBranchService {
      * @param cloudId           - cloud id
      * @param warehouseBranchId - id of the warehouseBranch to be updated
      * @param warehouseBranch   - warehouseBranch to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/warehouse-branches/{warehouseBranchId}")
     Call<Void> updateWarehouseBranch(@Path("cloudId") Long cloudId, @Path("warehouseBranchId") Long warehouseBranchId, @Body WarehouseBranch warehouseBranch);

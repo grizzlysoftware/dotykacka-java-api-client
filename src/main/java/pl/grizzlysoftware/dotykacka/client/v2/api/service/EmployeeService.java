@@ -41,7 +41,7 @@ public interface EmployeeService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return employees
      */
     @GET("v2/clouds/{cloudId}/employees")
     Call<Collection<Employee>> findEmployees(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -54,7 +54,7 @@ public interface EmployeeService {
      *
      * @param cloudId    - cloud id
      * @param employeeId - employeeId id
-     * @return
+     * @return employee
      */
     @GET("v2/clouds/{cloudId}/employees/{employeeId}")
     Call<Employee> findEmployeeById(@Path("cloudId") Long cloudId, @Path("employeeId") Long employeeId);
@@ -67,7 +67,7 @@ public interface EmployeeService {
      *
      * @param cloudId   - cloud id
      * @param employees - employees to be created, max 100 employees
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/employees")
     Call<Void> createEmployee(@Path("cloudId") Long cloudId, @Body Collection<Employee> employees);
@@ -79,7 +79,7 @@ public interface EmployeeService {
      *
      * @param cloudId   - cloud id
      * @param employees - employees to be replaced, max 100 employees
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/employees")
     Call<Void> replaceEmployees(@Path("cloudId") Long cloudId, @Body Collection<Employee> employees);
@@ -92,7 +92,7 @@ public interface EmployeeService {
      * @param cloudId    - cloud id
      * @param employeeId - id of the employee to be replaced
      * @param employee   - employee to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/employees/{employeeId}")
     Call<Void> replaceEmployee(@Path("cloudId") Long cloudId, @Path("employeeId") Long employeeId, @Body Employee employee);
@@ -105,7 +105,7 @@ public interface EmployeeService {
      * @param cloudId    - cloud id
      * @param employeeId - id of the employee to be updated
      * @param employee   - employee to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/employees/{employeeId}")
     Call<Void> updateEmployee(@Path("cloudId") Long cloudId, @Path("employeeId") Long employeeId, @Body Employee employee);
@@ -113,7 +113,7 @@ public interface EmployeeService {
     /**
      * @param cloudId    - cloud id
      * @param employeeId - employee id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/employees/{employeeId}")
     Call<Void> deleteEmployee(@Path("cloudId") Long cloudId, @Path("employeeId") Long employeeId);

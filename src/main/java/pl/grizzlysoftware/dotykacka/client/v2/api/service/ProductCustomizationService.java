@@ -41,20 +41,20 @@ public interface ProductCustomizationService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return product customizations
      */
     @GET("v2/clouds/{cloudId}/product-customizations")
     Call<Collection<ProductCustomization>> findProductCustomizations(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                                                     @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets productCustomization by id for given cloud
      * <p>
      * https://docs.api.dotypos.com/entity/product-customization#get-product-customization
      *
-     * @param cloudId    - cloud id
+     * @param cloudId                - cloud id
      * @param productCustomizationId - productCustomizationId id
-     * @return
+     * @return product customization
      */
     @GET("v2/clouds/{cloudId}/product-customizations/{productCustomizationId}")
     Call<ProductCustomization> findProductCustomizationById(@Path("cloudId") Long cloudId, @Path("productCustomizationId") Long productCustomizationId);
@@ -65,9 +65,9 @@ public interface ProductCustomizationService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-customization#create-new-product-customizations
      *
-     * @param cloudId   - cloud id
+     * @param cloudId               - cloud id
      * @param productCustomizations - productCustomizations to be created, max 100 productCustomizations
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/product-customizations")
     Call<Void> createProductCustomization(@Path("cloudId") Long cloudId, @Body Collection<ProductCustomization> productCustomizations);
@@ -77,9 +77,9 @@ public interface ProductCustomizationService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-customization#replace-or-create-product-customizations
      *
-     * @param cloudId   - cloud id
+     * @param cloudId               - cloud id
      * @param productCustomizations - productCustomizations to be replaced, max 100 productCustomizations
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/product-customizations")
     Call<Void> replaceProductCustomizations(@Path("cloudId") Long cloudId, @Body Collection<ProductCustomization> productCustomizations);
@@ -89,10 +89,10 @@ public interface ProductCustomizationService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-customization#replace-or-create-product-customizations
      *
-     * @param cloudId    - cloud id
+     * @param cloudId                - cloud id
      * @param productCustomizationId - id of the productCustomization to be replaced
      * @param productCustomization   - productCustomization to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/product-customizations/{productCustomizationId}")
     Call<Void> replaceProductCustomization(@Path("cloudId") Long cloudId, @Path("productCustomizationId") Long productCustomizationId, @Body ProductCustomization productCustomization);
@@ -102,18 +102,18 @@ public interface ProductCustomizationService {
      * <p>
      * https://docs.api.dotypos.com/entity/product-customization#partial-update-of-product-customization
      *
-     * @param cloudId    - cloud id
+     * @param cloudId                - cloud id
      * @param productCustomizationId - id of the productCustomization to be updated
      * @param productCustomization   - productCustomization to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/product-customizations/{productCustomizationId}")
     Call<Void> updateProductCustomization(@Path("cloudId") Long cloudId, @Path("productCustomizationId") Long productCustomizationId, @Body ProductCustomization productCustomization);
 
     /**
-     * @param cloudId    - cloud id
+     * @param cloudId                - cloud id
      * @param productCustomizationId - productCustomization id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/product-customizations/{productCustomizationId}")
     Call<Void> deleteProductCustomization(@Path("cloudId") Long cloudId, @Path("productCustomizationId") Long productCustomizationId);

@@ -41,20 +41,20 @@ public interface ReservationService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return reservations
      */
     @GET("v2/clouds/{cloudId}/reservations")
     Call<Collection<Reservation>> findReservations(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                                   @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets reservation by id for given cloud
      * <p>
      * https://docs.api.dotypos.com/entity/reservation#get-reservation
      *
-     * @param cloudId    - cloud id
+     * @param cloudId       - cloud id
      * @param reservationId - reservationId id
-     * @return
+     * @return reservation
      */
     @GET("v2/clouds/{cloudId}/reservations/{reservationId}")
     Call<Reservation> findReservationById(@Path("cloudId") Long cloudId, @Path("reservationId") Long reservationId);
@@ -65,9 +65,9 @@ public interface ReservationService {
      * <p>
      * https://docs.api.dotypos.com/entity/reservation#create-reservation
      *
-     * @param cloudId   - cloud id
+     * @param cloudId      - cloud id
      * @param reservations - reservations to be created, max 100 reservations
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/reservations")
     Call<Void> createReservation(@Path("cloudId") Long cloudId, @Body Collection<Reservation> reservations);
@@ -77,9 +77,9 @@ public interface ReservationService {
      * <p>
      * https://docs.api.dotypos.com/entity/reservation#replace-or-create-reservations
      *
-     * @param cloudId   - cloud id
+     * @param cloudId      - cloud id
      * @param reservations - reservations to be replaced, max 100 reservations
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/reservations")
     Call<Void> replaceReservations(@Path("cloudId") Long cloudId, @Body Collection<Reservation> reservations);
@@ -89,10 +89,10 @@ public interface ReservationService {
      * <p>
      * https://docs.api.dotypos.com/entity/reservation#replace-or-create-reservation
      *
-     * @param cloudId    - cloud id
+     * @param cloudId       - cloud id
      * @param reservationId - id of the reservation to be replaced
      * @param reservation   - reservation to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/reservations/{reservationId}")
     Call<Void> replaceReservation(@Path("cloudId") Long cloudId, @Path("reservationId") Long reservationId, @Body Reservation reservation);
@@ -102,18 +102,18 @@ public interface ReservationService {
      * <p>
      * https://docs.api.dotypos.com/entity/reservation#partial-update-of-reservation
      *
-     * @param cloudId    - cloud id
+     * @param cloudId       - cloud id
      * @param reservationId - id of the reservation to be updated
      * @param reservation   - reservation to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/reservations/{reservationId}")
     Call<Void> updateReservation(@Path("cloudId") Long cloudId, @Path("reservationId") Long reservationId, @Body Reservation reservation);
 
     /**
-     * @param cloudId    - cloud id
+     * @param cloudId       - cloud id
      * @param reservationId - reservation id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/reservations/{reservationId}")
     Call<Void> deleteReservation(@Path("cloudId") Long cloudId, @Path("reservationId") Long reservationId);

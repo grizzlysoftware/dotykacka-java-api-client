@@ -41,7 +41,7 @@ public interface CustomerService {
      * @param page    - returns certain page of data
      * @param filter  - filters (??)
      * @param sort    - sorting (??)
-     * @return
+     * @return customers
      */
     @GET("v2/clouds/{cloudId}/customers")
     Call<Collection<Customer>> findCustomers(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
@@ -54,7 +54,7 @@ public interface CustomerService {
      *
      * @param cloudId    - cloud id
      * @param customerId - customerId id
-     * @return
+     * @return customer
      */
     @GET("v2/clouds/{cloudId}/customers/{customerId}")
     Call<Customer> findCustomerById(@Path("cloudId") Long cloudId, @Path("customerId") Long customerId);
@@ -67,7 +67,7 @@ public interface CustomerService {
      *
      * @param cloudId   - cloud id
      * @param customers - customers to be created, max 100 customers
-     * @return
+     * @return void Call
      */
     @POST("v2/clouds/{cloudId}/customers")
     Call<Void> createCustomer(@Path("cloudId") Long cloudId, @Body Collection<Customer> customers);
@@ -79,7 +79,7 @@ public interface CustomerService {
      *
      * @param cloudId   - cloud id
      * @param customers - customers to be replaced, max 100 customers
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/customers")
     Call<Void> replaceCustomers(@Path("cloudId") Long cloudId, @Body Collection<Customer> customers);
@@ -92,7 +92,7 @@ public interface CustomerService {
      * @param cloudId    - cloud id
      * @param customerId - id of the customer to be replaced
      * @param customer   - customer to be replaced
-     * @return
+     * @return void Call
      */
     @PUT("v2/clouds/{cloudId}/customers/{customerId}")
     Call<Void> replaceCustomer(@Path("cloudId") Long cloudId, @Path("customerId") Long customerId, @Body Customer customer);
@@ -105,7 +105,7 @@ public interface CustomerService {
      * @param cloudId    - cloud id
      * @param customerId - id of the customer to be updated
      * @param customer   - customer to be updated
-     * @return
+     * @return void Call
      */
     @PATCH("v2/clouds/{cloudId}/customers/{customerId}")
     Call<Void> updateCustomer(@Path("cloudId") Long cloudId, @Path("customerId") Long customerId, @Body Customer customer);
@@ -113,7 +113,7 @@ public interface CustomerService {
     /**
      * @param cloudId    - cloud id
      * @param customerId - customer id
-     * @return
+     * @return void Call
      */
     @GET("v2/clouds/{cloudId}/customers/{customerId}")
     Call<Void> deleteCustomer(@Path("cloudId") Long cloudId, @Path("customerId") Long customerId);
