@@ -1,5 +1,6 @@
 package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
+import pl.grizzlysoftware.dotykacka.client.DotykackaApiServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.category.Category;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.CategoryService;
 import pl.grizzlysoftware.dotykacka.util.BatchLoader;

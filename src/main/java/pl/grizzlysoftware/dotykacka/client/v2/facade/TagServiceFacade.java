@@ -1,11 +1,10 @@
 package pl.grizzlysoftware.dotykacka.client.v2.facade;
 
-import pl.grizzlysoftware.dotykacka.client.v1.facade.DotykackaApiServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.DotykackaApiServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v2.api.dto.Tag;
 import pl.grizzlysoftware.dotykacka.client.v2.api.service.TagService;
 import pl.grizzlysoftware.dotykacka.util.BatchLoader;
 
-import java.util.Arrays;
 import java.util.Collection;
 
 import static java.util.Arrays.asList;

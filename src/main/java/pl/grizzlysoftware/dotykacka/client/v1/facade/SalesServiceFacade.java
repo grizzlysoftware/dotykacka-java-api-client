@@ -1,5 +1,6 @@
 package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
+import pl.grizzlysoftware.dotykacka.client.BasicDotykackaApiServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.sales.*;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.sales.report.SalesReport;
 import pl.grizzlysoftware.dotykacka.client.v1.api.service.sales.*;

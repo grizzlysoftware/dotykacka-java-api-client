@@ -18,6 +18,7 @@
 
 package pl.grizzlysoftware.dotykacka.client.v1.facade;
 
+import pl.grizzlysoftware.dotykacka.client.DotykackaApiServiceFacade;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.Ingredient;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.ProductIngredient;
 import pl.grizzlysoftware.dotykacka.client.v1.api.dto.product.Product;
