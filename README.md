@@ -132,6 +132,14 @@ Dotykacka API V2 service coverage:
     * ~~Replace many categories~~
     * ~~Update a single category~~
     * ~~Delete a single category~~
+* Customers Service
+    * ~~Get customers~~
+    * ~~Get customer~~
+    * ~~Create new customery~
+    * ~~Replace a single customer~~
+    * ~~Replace many customers~~
+    * ~~Update a single customer~~
+    * ~~Delete a single customer~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
