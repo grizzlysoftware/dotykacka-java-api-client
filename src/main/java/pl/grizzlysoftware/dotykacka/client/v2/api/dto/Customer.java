@@ -8,6 +8,9 @@ import java.util.Collection;
 
 /**
  * Created by Bartosz Pawłowski on 2019-07-01.
+ *
+ * https://docs.api.dotypos.com/entity/customer#customer-schema
+ *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)

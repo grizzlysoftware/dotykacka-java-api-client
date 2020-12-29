@@ -26,12 +26,14 @@ import java.util.Collection;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ * <p>
+ * https://docs.api.dotypos.com/entity/employee
  */
 public interface EmployeeService {
 
     /**
      * Gets employees for given cloud
-     *
+     * <p>
      * https://docs.api.dotypos.com/entity/employee#get-employees
      *
      * @param cloudId - id of the cloud
@@ -43,7 +45,7 @@ public interface EmployeeService {
      */
     @GET("v2/clouds/{cloudId}/employees")
     Call<Collection<Employee>> findEmployees(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                              @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets employee by id for given cloud
@@ -63,7 +65,7 @@ public interface EmployeeService {
      * <p>
      * https://docs.api.dotypos.com/entity/employee#create-employee
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param employees - employees to be created, max 100 employees
      * @return
      */
@@ -75,7 +77,7 @@ public interface EmployeeService {
      * <p>
      * https://docs.api.dotypos.com/entity/employee#replace-or-create-employees
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param employees - employees to be replaced, max 100 employees
      * @return
      */

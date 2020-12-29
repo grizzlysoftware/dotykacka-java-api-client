@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ *
+ * https://docs.api.dotypos.com/entity/branch#branch-schema
+ *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

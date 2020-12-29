@@ -26,12 +26,14 @@ import java.util.Collection;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ * <p>
+ * https://docs.api.dotypos.com/entity/category
  */
 public interface CategoryService {
 
     /**
      * Gets categories for given cloud
-     *
+     * <p>
      * https://docs.api.dotypos.com/entity/category#get-categories
      *
      * @param cloudId - id of the cloud

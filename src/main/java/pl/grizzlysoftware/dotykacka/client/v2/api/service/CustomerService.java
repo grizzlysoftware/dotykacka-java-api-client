@@ -26,12 +26,14 @@ import java.util.Collection;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ * <p>
+ * https://docs.api.dotypos.com/entity/customer
  */
 public interface CustomerService {
 
     /**
      * Gets customers for given cloud
-     *
+     * <p>
      * https://docs.api.dotypos.com/entity/customer#get-customers
      *
      * @param cloudId - id of the cloud
@@ -43,7 +45,7 @@ public interface CustomerService {
      */
     @GET("v2/clouds/{cloudId}/customers")
     Call<Collection<Customer>> findCustomers(@Path("cloudId") Long cloudId, @Query("limit") Integer limit,
-                                              @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
+                                             @Query("page") Integer page, @Query("filter") String filter, @Query("sort") String sort);
 
     /**
      * Gets customer by id for given cloud
@@ -63,7 +65,7 @@ public interface CustomerService {
      * <p>
      * https://docs.api.dotypos.com/entity/customer#create-customer
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param customers - customers to be created, max 100 customers
      * @return
      */
@@ -75,7 +77,7 @@ public interface CustomerService {
      * <p>
      * https://docs.api.dotypos.com/entity/customer#replace-or-create-customers
      *
-     * @param cloudId    - cloud id
+     * @param cloudId   - cloud id
      * @param customers - customers to be replaced, max 100 customers
      * @return
      */

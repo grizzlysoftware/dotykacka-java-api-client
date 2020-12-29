@@ -8,6 +8,9 @@ import java.util.Collection;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
+ *
+ * https://docs.api.dotypos.com/entity/category#category-schema
+ *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
