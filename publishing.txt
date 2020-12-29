@@ -19,3 +19,6 @@ firstly SNAPSHOT, then RELEASE.
 you from the past
 
 PS. you have a mess in your gpg keys, so if something is f*cked up - you deserved it
+PS2. hello again, if gradle is complaining about not configured signatory it means that it does
+not see environment variables form above. Make sure that you are invoking gradle, it's tasks and env variables
+from single command.
