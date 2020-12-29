@@ -1,11 +1,10 @@
 package pl.grizzlysoftware.dotykacka.client.v2;
 
-import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthApiToken;
 import pl.grizzlysoftware.dotykacka.client.v2.api.service.*;
 import pl.grizzlysoftware.dotykacka.client.v2.facade.*;
 import pl.grizzlysoftware.dotykacka.model.Configuration;
-import pl.grizzlysoftware.dotykacka.util.AccessTokenProvider;
-import pl.grizzlysoftware.dotykacka.util.ApiTokenProvider;
+import pl.grizzlysoftware.dotykacka.client.v2.util.AccessTokenProvider;
+import pl.grizzlysoftware.dotykacka.client.v2.util.ApiTokenProvider;
 import pl.grizzlysoftware.dotykacka.util.DotykackaOAuthAccessTokenExtractor;
 import pl.grizzlysoftware.dotykacka.util.OkHttpAccessTokenAuthenticator;
 import pl.grizzlysoftware.util.OkHttpLoggingInterceptor;

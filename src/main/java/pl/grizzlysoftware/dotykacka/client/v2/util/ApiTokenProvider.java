@@ -16,42 +16,48 @@
  * THE SOFTWARE.
  */
 
-package pl.grizzlysoftware.dotykacka.client.v2.facade;
+package pl.grizzlysoftware.dotykacka.client.v2.util;
 
-import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthAccessToken;
 import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthApiToken;
-import pl.grizzlysoftware.util.RetrofitApiServiceFacade;
+import pl.grizzlysoftware.dotykacka.client.v2.facade.OAuthServiceFacade;
+import pl.grizzlysoftware.dotykacka.model.Credentials;
+import pl.grizzlysoftware.util.TokenProvider;
 
-import static java.lang.System.currentTimeMillis;
-import static java.util.Base64.getEncoder;
 import static java.util.Objects.requireNonNull;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public class OAuthServiceFacade extends RetrofitApiServiceFacade {
-//    private OAuthService service;
-//
-//    public OAuthServiceFacade(OAuthService service) {
-//        this.service = requireNonNull(service);
-//    }
+public class ApiTokenProvider implements TokenProvider<OAuthApiToken> {
+    protected final OAuthServiceFacade oauthService;
+    protected Credentials credentials;
+    protected OAuthApiToken apiToken;
 
-    public OAuthServiceFacade() {
-        //TODO to be removed when actual implementation of OAuthService is there
+    public ApiTokenProvider(OAuthServiceFacade oauthService, Credentials credentials) {
+        this.oauthService = requireNonNull(oauthService);
+        this.credentials = requireNonNull(credentials);
     }
 
-    public OAuthAccessToken accessToken(String username, String password, String apiToken) {
-//        var token = execute(service.accessToken(apiToken, "", "password", basicEncoded(username, password)));
-//        token.receivedAt = currentTimeMillis();
-        return new OAuthAccessToken();
+    public ApiTokenProvider(OAuthServiceFacade oauthService, OAuthApiToken apiToken) {
+        this.oauthService = requireNonNull(oauthService);
+        this.apiToken = requireNonNull(apiToken);
     }
 
-    public OAuthApiToken apiToken(String username, String password) {
-//        return execute(service.apiToken(username, password, "touchpo"));
-        return new OAuthApiToken();
+    void setApiToken(String token) {
+        if (token == null) {
+            this.apiToken = null;
+        } else {
+            this.apiToken = new OAuthApiToken(token);
+        }
     }
 
-    private String basicEncoded(String username, String password) {
-        return "Basic "+ new String(getEncoder().encode(String.format("%s:%s", username, password).getBytes()));
+    @Override
+    public OAuthApiToken acquireToken() {
+        if (apiToken == null || apiToken.token == null) {
+            apiToken = oauthService.apiToken(credentials.username,
+                    credentials.password);
+        }
+
+        return apiToken;
     }
 }

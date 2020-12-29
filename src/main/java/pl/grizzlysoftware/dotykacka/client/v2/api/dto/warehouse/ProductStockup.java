@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import pl.grizzlysoftware.dotykacka.client.v1.api.dto.ProductStockupItem;
 import pl.grizzlysoftware.util.NumericBooleanDeserializer;
 import pl.grizzlysoftware.util.NumericBooleanSerializer;
 

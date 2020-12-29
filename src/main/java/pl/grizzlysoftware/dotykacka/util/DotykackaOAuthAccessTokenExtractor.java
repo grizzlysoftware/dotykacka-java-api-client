@@ -1,6 +1,6 @@
 package pl.grizzlysoftware.dotykacka.util;
 
-import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken;
+import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthAccessToken;
 
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl

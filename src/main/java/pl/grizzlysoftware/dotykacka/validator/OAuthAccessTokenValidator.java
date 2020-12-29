@@ -18,8 +18,9 @@
 
 package pl.grizzlysoftware.dotykacka.validator;
 
-import pl.grizzlysoftware.dotykacka.client.v1.api.dto.oauth.OAuthAccessToken;
+import pl.grizzlysoftware.dotykacka.client.v2.api.dto.oauth.OAuthAccessToken;
 
+//TODO this should be refactored a bit
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
