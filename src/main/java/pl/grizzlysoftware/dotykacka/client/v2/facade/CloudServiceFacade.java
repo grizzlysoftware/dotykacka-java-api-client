@@ -18,7 +18,7 @@ public class CloudServiceFacade extends DotykackaApiServiceFacade<CloudService> 
     }
 
     public Cloud findCloudById(Long id) {
-        var out = execute(service.findCloudById(cloudId, id));
+        var out = execute(service.findCloudById(id));
         return out;
     }
 
