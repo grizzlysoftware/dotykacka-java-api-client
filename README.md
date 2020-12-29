@@ -159,6 +159,9 @@ Dotykacka API V2 service coverage:
     * ~~Partial update of employee~~
     * ~~Delete employee~~
     * Set employee access pin
+* MoneyLog Service
+    * ~~Get money logs~~
+    * ~~Get money log~~
 * Warehouse Service
     * ~~Get warehouses~~
     * ~~Get warehouse~~
