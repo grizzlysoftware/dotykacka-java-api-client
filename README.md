@@ -115,6 +115,24 @@ Dotykacka API service coverage:
   * ~~Delete Warehouse~~
   * ~~Update Warehouse Field~~
 
+
+
+Dotykacka API V2 service coverage:
+* Warehouse Service
+    * ~~Get warehouses~~
+    * ~~Get warehouse~~
+    * ~~Products on warehouse~~
+    * ~~Product on warehouse~~
+    * ~~Create new warehouse~~
+    * Replace a single warehouse
+    * Replace many warehouses
+    * ~~Update a single warehouse~~
+    * ~~Delete a single warehouse~~
+    * ~~Stockup to warehouse~~
+    * Transfer to warehouse
+    * Sale product on warehohouse
+    
+    
 ## Running unit tests
 ```
 gradlew clean test 
